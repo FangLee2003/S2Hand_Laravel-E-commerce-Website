@@ -14,24 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 require __DIR__ . '/auth.php';
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth'])->name('dashboard');
+//Route::get('/admin', function () {
+//    return view('admin');
+//})->middleware(['auth'])->name('admin');
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
-    Route::get('/dashboard', 'Admin\FrontendController@index'
+    Route::get('/dashboard', 'Admin\DashboardController@index'
 //        function () {
-//        return view('inc.index');
+//        return view('admin.index');
 //    }
     );
     Route::get('categories', 'Admin\CategoryController@index');
@@ -43,4 +40,14 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::put('edit-category/{id}', 'Admin\CategoryController@putEdit');
 
     Route::get('delete-category/{id}', 'Admin\CategoryController@delete');
+
+    Route::get('products', 'Admin\ProductController@index');
+
+    Route::get('add-product', 'Admin\ProductController@getAdd');
+    Route::post('add-product', 'Admin\ProductController@postAdd');
+
+    Route::get('edit-product/{id}', 'Admin\ProductController@getEdit');
+    Route::put('edit-product/{id}', 'Admin\ProductController@putEdit');
+
+    Route::get('delete-product/{id}', 'Admin\ProductController@delete');
 });

@@ -18,8 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/material-admin.css') }}" rel="stylesheet">
+    <link href="{{asset('css/custom.css')}}" rel="stylesheet">
 </head>
 <body class = "bg-gray-200">
 <div id="app">
