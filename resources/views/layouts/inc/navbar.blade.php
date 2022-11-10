@@ -18,10 +18,6 @@
                 </div>
             </div>
             <ul class="navbar-nav justify-content-end">
-                <li class="nav-item d-flex align-items-center">
-                    <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank"
-                       href="https://www.creative-tim.com/builder/material?ref=navbar-dashboard">Online Builder</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -66,7 +62,7 @@
                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                 <div class="d-flex py-1">
                                     <div class="my-auto">
-                                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                                        <img src="{{asset('img/team-2.jpg')}}" class="avatar avatar-sm  me-3 ">
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="text-sm font-weight-normal mb-1">
@@ -84,7 +80,7 @@
                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                 <div class="d-flex py-1">
                                     <div class="my-auto">
-                                        <img src="../assets/img/small-logos/logo-spotify.svg"
+                                        <img src="{{asset('/img/small-logos/logo-spotify.svg')}}"
                                              class="avatar avatar-sm bg-gradient-dark  me-3 ">
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">

@@ -12,12 +12,12 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('admin.category.index', compact('category'));
+        return view('dashboard.category.index', compact('category'));
     }
 
     public function getAdd()
     {
-        return view('admin.category.add');
+        return view('dashboard.category.add');
     }
 
     public function postAdd(Request $request)
@@ -44,13 +44,13 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect('categories')->with('status', 'Category Added Successfully');
+        return redirect('categories')->with('success', 'Category Added Successfully');
     }
 
     public function getEdit($id)
     {
         $category = Category::find($id);
-        return view('admin.category.edit', compact('category'));
+        return view('dashboard.category.edit', compact('category'));
     }
 
     public function putEdit(Request $request, $id)
@@ -81,7 +81,7 @@ class CategoryController extends Controller
 
         $category->update();
 
-        return redirect('categories')->with('status', 'Category Edited Successfully');
+        return redirect('categories')->with('success', 'Category Edited Successfully');
     }
 
     public function delete($id)
@@ -97,6 +97,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect('categories')->with('status', 'Category Deleted Successfully');
+        return redirect('categories')->with('success', 'Category Deleted Successfully');
     }
 }

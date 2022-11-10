@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header text-center"><h2>{{ __('Register') }}</h2></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -56,7 +56,7 @@
                         <div class="row mb-3">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-3">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>

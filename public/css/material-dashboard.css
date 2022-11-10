@@ -2754,7 +2754,6 @@ progress {
 .form-control:focus {
     color: #495057;
     background-color: transparent;
-    border-color: transparent;
     outline: 0;
     box-shadow: none;
 }
@@ -2952,7 +2951,6 @@ textarea.form-control-lg {
 .form-check {
     display: block;
     min-height: auto;
-    padding-left: 1.73em;
     margin-bottom: 0.125rem;
 }
 

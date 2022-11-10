@@ -1,4 +1,4 @@
-@extends('layouts.admin');
+@extends('admin');
 
 @section('head')
     <link id="pagestyle" href="{{asset('css/app.css')}}" rel="stylesheet"/>

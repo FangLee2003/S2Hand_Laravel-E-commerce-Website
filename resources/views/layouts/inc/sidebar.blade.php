@@ -14,7 +14,8 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link text-white active bg-gradient-primary" href="../pages/dashboard.html">
+                <a class="nav-link {{Request::is('dashboard')? 'active bg-gradient-primary' : ''}}"
+                   href="{{url('dashboard')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">dashboard</i>
                     </div>
@@ -22,7 +23,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('categories')}}">
+                <a class="nav-link {{Request::is('categories')? 'active bg-gradient-primary' : ''}}"
+                   href="{{url('categories')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">category</i>
                     </div>
@@ -30,7 +32,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('add-category')}}">
+                <a class="nav-link {{Request::is('add-category')? 'active bg-gradient-primary' : ''}}"
+                   href="{{url('add-category')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">add</i>
                     </div>
@@ -38,7 +41,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/tables.html">
+                <a class="nav-link text-white {{Request::is('tables')? 'active bg-gradient-primary' : ''}}"
+                   href="../pages/tables.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
@@ -46,7 +50,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/billing.html">
+                <a class="nav-link text-white {{Request::is('billing')? 'active bg-gradient-primary' : ''}}"
+                   href="../pages/billing.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">receipt_long</i>
                     </div>
@@ -54,7 +59,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/virtual-reality.html">
+                <a class="nav-link text-white {{Request::is('virtual-reality')? 'active bg-gradient-primary' : ''}}"
+                   href="../pages/virtual-reality.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">view_in_ar</i>
                     </div>
@@ -62,7 +68,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/rtl.html">
+                <a class="nav-link text-white {{Request::is('rtl')? 'active bg-gradient-primary' : ''}}"
+                   href="../pages/rtl.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
                     </div>
@@ -70,7 +77,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/notifications.html">
+                <a class="nav-link text-white {{Request::is('notifications')? 'active bg-gradient-primary' : ''}}"
+                   href="../pages/notifications.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">notifications</i>
                     </div>
@@ -81,7 +89,8 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/profile.html">
+                <a class="nav-link text-white {{Request::is('profile')? 'active bg-gradient-primary' : ''}}"
+                   href="../pages/profile.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
@@ -89,7 +98,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-in.html">
+                <a class="nav-link text-white {{Request::is('sign-in')? 'active bg-gradient-primary' : ''}}"
+                   href="../pages/sign-in.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">login</i>
                     </div>
@@ -97,7 +107,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-up.html">
+                <a class="nav-link text-white {{Request::is('sign-up')? 'active bg-gradient-primary' : ''}}"
+                   href="../pages/sign-up.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">assignment</i>
                     </div>
