@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('head')
-    <title>Boutique | Ecommerce bootstrap template</title>
+    <title>2HAND</title>
 @endsection
 
 @section('content')
@@ -28,23 +28,23 @@
             </header>
             <div class="row">
                 <div class="col-md-4">
-                    <a class="category-item" href="{{url('categories/'.$category[0]->slug)}}">
+                    <a class="category-item" href="{{url($category[0]->slug)}}">
                         <img class="img-fluid" src="{{asset('assets/uploads/category/'.$category[0]->image)}}" alt=""/>
                         <strong class="category-item-title">{{$category[0]->name}}</strong>
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a class="category-item mb-4" href="{{url('categories/'.$category[1]->slug)}}">
+                    <a class="category-item mb-4" href="{{url($category[1]->slug)}}">
                         <img class="img-fluid" src="{{asset('assets/uploads/category/'.$category[1]->image)}}" alt=""/>
                         <strong class="category-item-title">{{$category[1]->name}}</strong>
                     </a>
-                    <a class="category-item" href="{{url('categories/'.$category[2]->slug)}}">
+                    <a class="category-item" href="{{url($category[2]->slug)}}">
                         <img class="img-fluid" src="{{asset('assets/uploads/category/'.$category[2]->image)}}" alt=""/>
                         <strong class="category-item-title">{{$category[2]->name}}</strong>
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a class="category-item" href="{{url('categories/'.$category[3]->slug)}}">
+                    <a class="category-item" href="{{url($category[3]->slug)}}">
                         <img class="img-fluid" src="{{asset('assets/uploads/category/'.$category[3]->image)}}" alt=""/>
                         <strong class="category-item-title">{{$category[3]->name}}</strong>
                     </a>
@@ -64,7 +64,7 @@
                         <div class="product text-center">
                             <div class="position-relative mb-3">
                                 <div class="badge text-white bg-"></div>
-                                <a class="d-block" href="detail.html">
+                                <a class="d-block" href="{{url($item->findCategory->slug . '/' . $item->slug)}}">
                                     <img class="img-fluid w-100" src="{{asset('assets/uploads/product/'.$item->image)}}"
                                          alt="..."></a>
                                 <div class="product-overlay">

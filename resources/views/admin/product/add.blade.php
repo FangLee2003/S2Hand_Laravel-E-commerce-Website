@@ -1,6 +1,7 @@
 @extends('layouts.admin');
 
 @section('head')
+    <title>Add Product - 2HAND</title>
     <link id="pagestyle" href="{{asset('css/app.css')}}" rel="stylesheet"/>
     <link id="pagestyle" href="{{asset('css/custom.css')}}" rel="stylesheet"/>
 @endsection

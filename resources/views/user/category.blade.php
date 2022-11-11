@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('head')
-    <title>Boutique | Ecommerce bootstrap template</title>
+    <title>{{$category->name}} - 2HAND</title>
 @endsection
 
 @section('content')
@@ -81,7 +81,7 @@
                                     <div class="product text-center">
                                         <div class="mb-3 position-relative">
                                             <div class="badge text-white bg-"></div>
-                                            <a class="d-block" href="detail.html">
+                                            <a class="d-block" href="{{url($item->findCategory->slug . '/' . $item->slug)}}">
                                                 <img class="img-fluid w-100"
                                                      src="{{asset('assets/uploads/product/'.$item->image)}}" alt="..."></a>
                                             <div class="product-overlay">
