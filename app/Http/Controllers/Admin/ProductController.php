@@ -50,7 +50,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect('products')->with('success', 'Product Added Successfully');
+        return redirect('admin/products')->with('success', 'Product Added Successfully');
     }
 
     public function getEdit($id)
@@ -91,7 +91,7 @@ class ProductController extends Controller
         $product->meta_keywords = $request->input('meta_keywords');
         $product->update();
 
-        return redirect('products')->with('success', 'Product Edited Successfully');
+        return redirect('admin/products')->with('success', 'Product Edited Successfully');
     }
 
     public function delete($id)
@@ -107,6 +107,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect('products')->with('success', 'Product Deleted Successfully');
+        return redirect('admin/products')->with('success', 'Product Deleted Successfully');
     }
 }

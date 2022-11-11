@@ -4,7 +4,7 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
            aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
+        <a class="navbar-brand m-0" href="{{url('admin/dashboard')}}"
            target="_blank">
             <img src="{{ asset('img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="main_logo">
             <span class="ms-1 font-weight-bold text-white">2HAND</span>
@@ -14,8 +14,8 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link {{Request::is('admin')? 'active bg-gradient-primary' : ''}}"
-                   href="{{url('dashboard')}}">
+                <a class="nav-link {{Request::is('admin/dashboard')? 'active bg-gradient-primary' : ''}}"
+                   href="{{url('admin/dashboard')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">dashboard</i>
                     </div>
@@ -23,8 +23,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{Request::is('categories')? 'active bg-gradient-primary' : ''}}"
-                   href="{{url('categories')}}">
+                <a class="nav-link {{Request::is('admin/categories')? 'active bg-gradient-primary' : ''}}"
+                   href="{{url('admin/categories')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">category</i>
                     </div>
@@ -32,8 +32,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{Request::is('products')? 'active bg-gradient-primary' : ''}}"
-                   href="{{url('products')}}">
+                <a class="nav-link {{Request::is('admin/products')? 'active bg-gradient-primary' : ''}}"
+                   href="{{url('admin/products')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">checkroom</i>
                     </div>
@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{Request::is('tables')? 'active bg-gradient-primary' : ''}}"
+                <a class="nav-link text-white {{Request::is('admin/tables')? 'active bg-gradient-primary' : ''}}"
                    href="../pages/tables.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
@@ -50,7 +50,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{Request::is('billing')? 'active bg-gradient-primary' : ''}}"
+                <a class="nav-link text-white {{Request::is('admin/billing')? 'active bg-gradient-primary' : ''}}"
                    href="../pages/billing.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">receipt_long</i>
@@ -59,7 +59,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{Request::is('virtual-reality')? 'active bg-gradient-primary' : ''}}"
+                <a class="nav-link text-white {{Request::is('admin/virtual-reality')? 'active bg-gradient-primary' : ''}}"
                    href="../pages/virtual-reality.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">view_in_ar</i>
@@ -68,7 +68,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{Request::is('rtl')? 'active bg-gradient-primary' : ''}}"
+                <a class="nav-link text-white {{Request::is('admin/rtl')? 'active bg-gradient-primary' : ''}}"
                    href="../pages/rtl.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
@@ -77,7 +77,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{Request::is('notifications')? 'active bg-gradient-primary' : ''}}"
+                <a class="nav-link text-white {{Request::is('admin/notifications')? 'active bg-gradient-primary' : ''}}"
                    href="../pages/notifications.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">notifications</i>
@@ -89,7 +89,7 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{Request::is('profile')? 'active bg-gradient-primary' : ''}}"
+                <a class="nav-link text-white {{Request::is('admin/profile')? 'active bg-gradient-primary' : ''}}"
                    href="../pages/profile.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
@@ -98,7 +98,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{Request::is('sign-in')? 'active bg-gradient-primary' : ''}}"
+                <a class="nav-link text-white {{Request::is('admin/sign-in')? 'active bg-gradient-primary' : ''}}"
                    href="../pages/sign-in.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">login</i>
@@ -107,7 +107,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{Request::is('sign-up')? 'active bg-gradient-primary' : ''}}"
+                <a class="nav-link text-white {{Request::is('admin/sign-up')? 'active bg-gradient-primary' : ''}}"
                    href="../pages/sign-up.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">assignment</i>

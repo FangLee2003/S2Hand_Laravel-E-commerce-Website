@@ -26,6 +26,7 @@ class Product extends Model
         'meta_keywords',
         'image'
     ];
+
     public function findCategory(){
         return $this->belongsTo(Category::class, 'cate_id', 'id');
     }

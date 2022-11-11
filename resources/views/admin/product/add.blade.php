@@ -11,7 +11,7 @@
             <h4>Add Product</h4>
         </div>
         <div class="card-body">
-            <form action="{{`add-product`}}" method="POST" enctype="multipart/form-data">
+            <form action="{{`admin/add-product`}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-6 mb-3">

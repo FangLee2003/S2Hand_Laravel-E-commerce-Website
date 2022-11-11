@@ -11,7 +11,7 @@
             <h4>Edit Product</h4>
         </div>
         <div class="card-body">
-            <form action="{{`edit-product/`.$product->id}}" method="POST" enctype="multipart/form-data">
+            <form action="{{`admin/edit-product/`.$product->id}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">

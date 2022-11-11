@@ -11,7 +11,7 @@
             <h4>Products</h4>
         </div>
         <div class="card-body">
-            <a class="btn btn-success" href="{{url('add-product')}}">
+            <a class="btn btn-success" href="{{url('admin/add-product')}}">
                 Add
             </a>
 {{--            <select class="form-select" name="cate_id">--}}
@@ -46,10 +46,10 @@
                                  alt="Image">
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="{{url('edit-product/'.$item->id)}}">
+                            <a class="btn btn-primary" href="{{url('admin/edit-product/'.$item->id)}}">
                                 Edit
                             </a>
-                            <a class="btn btn-danger" href="{{url('delete-product/'.$item->id)}}">
+                            <a class="btn btn-danger" href="{{url('admin/delete-product/'.$item->id)}}">
                                 Delete
                             </a>
                         </td>

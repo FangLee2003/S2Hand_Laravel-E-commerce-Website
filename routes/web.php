@@ -19,35 +19,40 @@ require __DIR__ . '/auth.php';
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', 'User\HomeController@index');
 
 //Route::get('/admin', function () {
 //    return view('admin');
 //})->middleware(['auth'])->name('admin');
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
-    Route::get('/dashboard', 'Admin\DashboardController@index'
+    Route::get('admin', function () {
+        return redirect('admin/dashboard');
+    });
+    Route::get('admin/dashboard', 'Admin\DashboardController@index'
 //        function () {
 //        return view('admin.index');
 //    }
     );
-    Route::get('categories', 'Admin\CategoryController@index');
+    Route::get('admin/categories', 'Admin\CategoryController@index');
 
-    Route::get('add-category', 'Admin\CategoryController@getAdd');
-    Route::post('add-category', 'Admin\CategoryController@postAdd');
+    Route::get('admin/add-category', 'Admin\CategoryController@getAdd');
+    Route::post('admin/add-category', 'Admin\CategoryController@postAdd');
 
-    Route::get('edit-category/{id}', 'Admin\CategoryController@getEdit');
-    Route::put('edit-category/{id}', 'Admin\CategoryController@putEdit');
+    Route::get('admin/edit-category/{id}', 'Admin\CategoryController@getEdit');
+    Route::put('admin/edit-category/{id}', 'Admin\CategoryController@putEdit');
 
-    Route::get('delete-category/{id}', 'Admin\CategoryController@delete');
+    Route::get('admin/delete-category/{id}', 'Admin\CategoryController@delete');
 
-    Route::get('products', 'Admin\ProductController@index');
+    Route::get('admin/products', 'Admin\ProductController@index');
 
-    Route::get('add-product', 'Admin\ProductController@getAdd');
-    Route::post('add-product', 'Admin\ProductController@postAdd');
+    Route::get('admin/add-product', 'Admin\ProductController@getAdd');
+    Route::post('admin/add-product', 'Admin\ProductController@postAdd');
 
-    Route::get('edit-product/{id}', 'Admin\ProductController@getEdit');
-    Route::put('edit-product/{id}', 'Admin\ProductController@putEdit');
+    Route::get('admin/edit-product/{id}', 'Admin\ProductController@getEdit');
+    Route::put('admin/edit-product/{id}', 'Admin\ProductController@putEdit');
 
-    Route::get('delete-product/{id}', 'Admin\ProductController@delete');
+    Route::get('admin/delete-product/{id}', 'Admin\ProductController@delete');
 });
+
+Route::get('categories/{slug}', 'User\CategoryController@index');

@@ -11,7 +11,7 @@
             <h4>Categories</h4>
         </div>
         <div class="card-body">
-            <a class="btn btn-success" href="{{url('add-category')}}">
+            <a class="btn btn-success" href="{{url('admin/add-category')}}">
                 Add
             </a>
             <table class="table">
@@ -35,10 +35,10 @@
                                  alt="Image">
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="{{url('edit-category/'.$item->id)}}">
+                            <a class="btn btn-primary" href="{{url('admin/edit-category/'.$item->id)}}">
                                 Edit
                             </a>
-                            <a class="btn btn-danger" href="{{url('delete-category/'.$item->id)}}">
+                            <a class="btn btn-danger" href="{{url('admin/delete-category/'.$item->id)}}">
                                 Delete
                             </a>
                         </td>

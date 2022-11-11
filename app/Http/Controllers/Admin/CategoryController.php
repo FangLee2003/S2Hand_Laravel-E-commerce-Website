@@ -44,7 +44,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect('categories')->with('success', 'Category Added Successfully');
+        return redirect('admin/categories')->with('success', 'Category Added Successfully');
     }
 
     public function getEdit($id)
@@ -81,7 +81,7 @@ class CategoryController extends Controller
 
         $category->update();
 
-        return redirect('categories')->with('success', 'Category Edited Successfully');
+        return redirect('admin/categories')->with('success', 'Category Edited Successfully');
     }
 
     public function delete($id)
@@ -97,6 +97,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect('categories')->with('success', 'Category Deleted Successfully');
+        return redirect('admin/categories')->with('success', 'Category Deleted Successfully');
     }
 }

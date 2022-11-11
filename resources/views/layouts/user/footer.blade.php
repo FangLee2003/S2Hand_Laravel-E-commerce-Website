@@ -22,23 +22,17 @@
             <div class="col-md-4">
                 <h6 class="text-uppercase mb-3">Social media</h6>
                 <ul class="list-unstyled mb-0">
-                    <li><a class="footer-link" href="#!">Twitter</a></li>
-                    <li><a class="footer-link" href="#!">Instagram</a></li>
-                    <li><a class="footer-link" href="#!">Tumblr</a></li>
-                    <li><a class="footer-link" href="#!">Pinterest</a></li>
+                    <li><a class="footer-link" href="https://www.linkedin.com/in/fang-lee-613b4a210">Linkedin</a></li>
+                    <li><a class="footer-link" href="https://fanglee2003.blogspot.com/">Blog</a></li>
+                    <li><a class="footer-link" href="https://www.youtube.com/channel/UCE2DVy3_Pk3BdVUAs6U-3cg">Youtube</a></li>
+                    <li><a class="footer-link" href="https://www.tiktok.com/@fanglee2003">Tiktok</a></li>
                 </ul>
             </div>
         </div>
         <div class="border-top pt-4" style="border-color: #1d1d1d !important">
             <div class="row">
-                <div class="col-md-6 text-center text-md-start">
+                <div class="col-md-12 text-center">
                     <p class="small text-muted mb-0">&copy; 2021 All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <p class="small text-muted mb-0">Template designed by <a class="text-white reset-anchor"
-                                                                             href="https://bootstrapious.com/p/boutique-bootstrap-e-commerce-template">Bootstrapious</a>
-                    </p>
-                    <!-- If you want to remove the backlink, please purchase the Attribution-Free License. See details in readme.txt or license.txt. Thanks!-->
                 </div>
             </div>
         </div>
