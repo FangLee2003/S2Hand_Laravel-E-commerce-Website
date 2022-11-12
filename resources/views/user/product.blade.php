@@ -48,12 +48,12 @@
                                 class="border d-flex align-items-center justify-content-between py-1 px-3 bg-white border-white">
                                 <span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
                                 <div class="quantity">
-                                    <button class="dec-btn p-0" onclick="incrementValue()">
+                                    <button class="dec-btn p-0">
                                         <i class="fas fa-caret-left"></i>
                                     </button>
-                                    <input id="quantity-input" class="form-control border-0 shadow-0 p-0" type="text"
+                                    <input class="quantity-input form-control border-0 shadow-0 p-0" type="text"
                                            value="1" max="{{$product->quantity}}" name="quantity">
-                                    <button class="inc-btn p-0" onclick="decrementValue()">
+                                    <button class="inc-btn p-0">
                                         <i class="fas fa-caret-right"></i>
                                     </button>
                                 </div>
@@ -151,7 +151,9 @@
                                     </ul>
                                 </div>
                             </div>
-                            <h6><a class="reset-anchor" href="{{url($item->findCategory->slug . '/' . $item->slug)}}">{{$item->name}}</a></h6>
+                            <h6><a class="reset-anchor"
+                                   href="{{url($item->findCategory->slug . '/' . $item->slug)}}">{{$item->name}}</a>
+                            </h6>
                             <p class="small text-muted">{{$item->selling_price}}$</p>
                         </div>
                     </div>
@@ -162,5 +164,37 @@
 @endsection
 
 @section('script')
-    <script src="{{asset('js/quantity.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.inc-btn').off().click(function (e) {
+                e.preventDefault()
+
+                var input = $('.quantity-input');
+
+                var value = parseInt(input.val(), 10)
+                value = isNaN(value) ? '1' : value
+
+                var max = parseInt(input.attr("max"))
+                max = isNaN(max) ? '1' : max
+
+                if (value < max) {
+                    value++
+                    input.val(value);
+                }
+            })
+            $('.dec-btn').off().click(function (e) {
+                e.preventDefault()
+
+                var input = $('.quantity-input');
+
+                var value = parseInt(input.val(), 10)
+                value = isNaN(value) ? '1' : value
+
+                if (value > 1) {
+                    value--
+                    input.val(value);
+                }
+            })
+        })
+    </script>
 @endsection

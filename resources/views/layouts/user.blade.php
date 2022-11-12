@@ -72,6 +72,7 @@
     @yield('content')
     @include('layouts.user.footer')
     <!-- JavaScript files-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('vendor/glightbox/js/glightbox.min.js')}}"></script>
     <script src="{{asset('vendor/nouislider/nouislider.min.js')}}"></script>
