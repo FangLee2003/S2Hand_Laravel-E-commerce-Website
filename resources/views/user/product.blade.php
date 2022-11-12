@@ -5,10 +5,10 @@
 @endsection
 
 @section('content')
-    <section class="py-5">
+    <section class="py-5 offset-1">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-lg-4">
+                <div class="col-lg-4 mb-3">
                     <!-- PRODUCT SLIDER-->
                     <div class="row m-sm-0">
                         <div class="col-sm-12 order-1 order-sm-2">
@@ -18,12 +18,13 @@
                                         <a class="glightbox product-view"
                                            href="{{asset('assets/uploads/product/'.$product->image)}}"
                                            data-gallery="gallery2"
-                                           data-glightbox="Product item 1"><img
+                                           data-glightbox="Product item 1">
+                                            <img
                                                 class="img-fluid"
                                                 src="{{asset('assets/uploads/product/'.$product->image)}}"
-                                                alt="..."></a>
+                                                alt="{{$product->image}}">
+                                        </a>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -43,7 +44,7 @@
                     <p class="text-muted lead">{{$product->selling_price}}$</p>
                     <p class="text-sm mb-4">{{$product->description}}</p>
                     <div class="row align-items-stretch mb-4">
-                        <div class="col-sm-5 pr-sm-0">
+                        <div class="col-sm-4 pr-sm-0">
                             <div
                                 class="border d-flex align-items-center justify-content-between py-1 px-3 bg-white border-white">
                                 <span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
@@ -59,14 +60,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3 pl-sm-0"><a
-                                class="btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0"
-                                href="cart.html">Add to cart</a></div>
+                    </div>
+                    <div class="col-sm-3 pl-sm-0 mb-4">
+                        <a
+                            class="btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0"
+                            href="cart.html">Add to cart
+                        </a>
                     </div>
                     <a class="text-dark p-0 mb-4 d-inline-block" href="#!"><i class="far fa-heart me-2"></i>Add to wish
                         list</a><br>
                     <ul class="list-unstyled small d-inline-block">
-                        <li class="px-3 py-2 mb-1 bg-white text-muted">
+                        <li class="pl-1 py-2 mb-1 bg-white text-muted">
                             <strong class="text-uppercase text-dark">Category:</strong>
                             <a class="reset-anchor ms-2"
                                href="{{url($product->findCategory->slug)}}"> {{$product->findCategory->name}} </a></li>
@@ -78,12 +82,15 @@
                 {{--            <li class="nav-item"><a class="nav-link text-uppercase active" id="description-tab" data-bs-toggle="tab"--}}
                 {{--                                    href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>--}}
                 {{--            </li>--}}
-                <li class="nav-item"><a class="nav-link text-uppercase" id="reviews-tab" data-bs-toggle="tab"
-                                        href="#reviews" role="tab" aria-controls="reviews"
-                                        aria-selected="false">Reviews</a>
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase" id="reviews-tab" data-bs-toggle="tab"
+                       href="#reviews" role="tab" aria-controls="reviews"
+                       aria-selected="false">
+                        <h4>Reviews</h4>
+                    </a>
                 </li>
             </ul>
-            <div class="tab-content mb-5" id="myTabContent">
+            <div class="tab-content mb-4" id="myTabContent">
                 {{--            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">--}}
                 {{--                <div class="p-4 p-lg-5 bg-white">--}}
                 {{--                    <h6 class="text-uppercase">Product description </h6>--}}
@@ -96,7 +103,7 @@
                 {{--                </div>--}}
                 {{--            </div>--}}
                 <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                    <div class="p-4 p-lg-5 bg-white">
+                    <div class="p-4 bg-white">
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="d-flex mb-3">
@@ -127,8 +134,8 @@
                 </div>
             </div>
             <!-- RELATED PRODUCTS-->
-            <h2 class="h5 text-uppercase mb-4">Related products</h2>
-            <div class="row">
+            <h4 class="text-uppercase mx-3">Related products</h4>
+            <div class="row mx-3 mt-5">
                 <!-- PRODUCT-->
                 @foreach($related_product as $item)
                     <div class="col-lg-3 col-sm-6">
@@ -166,7 +173,7 @@
 @section('script')
     <script>
         $(document).ready(function () {
-            $('.inc-btn').off().click(function (e) {
+            $('.inc-btn').off().click(function (e) { // .off() to avoid duplicate events
                 e.preventDefault()
 
                 var input = $('.quantity-input');
