@@ -34,6 +34,7 @@
                 <div class="col-lg-8">
                     <!-- PRODUCT DETAILS-->
                     <h1>{{$product->name}}</h1>
+                    <input type="hidden" class="product_id" value="{{$product->id}}">
                     <ul class="list-inline mb-2 text-sm">
                         <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
                         <li class="list-inline-item m-0 1"><i class="fas fa-star small text-warning"></i></li>
@@ -64,7 +65,7 @@
                     <div class="col-sm-3 pl-sm-0 mb-4">
                         <button
                             class="addToCartBtn d-inline-block btn btn-dark btn-outline-light"
-                            href="cart.html"> <i class="fas fa-cart-plus px-1"></i>Add to cart
+                            href="cart.html"><i class="fas fa-cart-plus px-1"></i>Add to cart
                         </button>
                     </div>
                     <button class="mb-3 d-inline-block btn btn-outline-dark" href="#!">
@@ -148,20 +149,20 @@
                                     <img class="img-fluid w-100" src="{{asset('assets/uploads/product/'.$item->image)}}"
                                          alt="...">
                                 </a>
-{{--                                <div class="product-overlay">--}}
-{{--                                    <ul class="mb-0 list-inline">--}}
-{{--                                        <li class="list-inline-item m-0 p-0">--}}
-{{--                                            <a class="btn btn-sm btn-outline-dark" href="#!"><i--}}
-{{--                                                    class="far fa-heart"></i></a></li>--}}
-{{--                                        <li class="list-inline-item m-0 p-0">--}}
-{{--                                            <button class="addToCartBtn btn btn-sm btn-dark" href="#!">Add to cart--}}
-{{--                                            </button>--}}
-{{--                                        </li>--}}
-{{--                                        <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark"--}}
-{{--                                                                             href="#productView" data-bs-toggle="modal"><i--}}
-{{--                                                    class="fas fa-expand"></i></a></li>--}}
-{{--                                    </ul>--}}
-{{--                                </div>--}}
+                                {{--                                <div class="product-overlay">--}}
+                                {{--                                    <ul class="mb-0 list-inline">--}}
+                                {{--                                        <li class="list-inline-item m-0 p-0">--}}
+                                {{--                                            <a class="btn btn-sm btn-outline-dark" href="#!"><i--}}
+                                {{--                                                    class="far fa-heart"></i></a></li>--}}
+                                {{--                                        <li class="list-inline-item m-0 p-0">--}}
+                                {{--                                            <button class="addToCartBtn btn btn-sm btn-dark" href="#!">Add to cart--}}
+                                {{--                                            </button>--}}
+                                {{--                                        </li>--}}
+                                {{--                                        <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark"--}}
+                                {{--                                                                             href="#productView" data-bs-toggle="modal"><i--}}
+                                {{--                                                    class="fas fa-expand"></i></a></li>--}}
+                                {{--                                    </ul>--}}
+                                {{--                                </div>--}}
                             </div>
                             <h6><a class="reset-anchor"
                                    href="{{url($item->findCategory->slug . '/' . $item->slug)}}">{{$item->name}}</a>
@@ -178,6 +179,31 @@
 @section('script')
     <script>
         $(document).ready(function () {
+            $('.addToCartBtn').off().click(function (e) {
+                e.preventDefault()
+
+                var product_id = $('.product_id').val()
+                var product_quantity = $('.quantity-input').val()
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    method: "POST",
+                    url: "/add-to-cart",
+                    data: {
+                        "product_id": product_id,
+                        "product_quantity": product_quantity
+                    },
+                    dataType: "dataType",
+                    success: function (response) {
+                        swal(response.status, '', 'success');
+                    }
+                })
+            })
             $('.inc-btn').off().click(function (e) { // .off() to avoid duplicate events
                 e.preventDefault()
 

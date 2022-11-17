@@ -58,3 +58,7 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 Route::get('{slug}', 'User\CategoryController@index');
 
 Route::get('{cate_slug}/{prod_slug}', 'User\ProductController@index');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::post('add-to-cart', 'User\CartController@addProduct');
+});
