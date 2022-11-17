@@ -79,6 +79,7 @@
     <script src="{{asset('vendor/swiper/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('vendor/choices.js/public/assets/scripts/choices.min.js')}}"></script>
     <script src="{{asset('js/front.js')}}"></script>
+    <script src="{{asset('js/cart.js')}}"></script>
 
     @yield('script')
 
@@ -111,6 +112,10 @@
     <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    // Laravel 7 or greater
+    <x:notify-messages />
+    @notifyJs
 
     @yield('script')
 </div>

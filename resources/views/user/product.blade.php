@@ -62,13 +62,16 @@
                         </div>
                     </div>
                     <div class="col-sm-3 pl-sm-0 mb-4">
-                        <a
-                            class="btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0"
-                            href="cart.html">Add to cart
-                        </a>
+                        <button
+                            class="addToCartBtn d-inline-block btn btn-dark btn-outline-light"
+                            href="cart.html"> <i class="fas fa-cart-plus px-1"></i>Add to cart
+                        </button>
                     </div>
-                    <a class="text-dark p-0 mb-4 d-inline-block" href="#!"><i class="far fa-heart me-2"></i>Add to wish
-                        list</a><br>
+                    <button class="mb-3 d-inline-block btn btn-outline-dark" href="#!">
+                        <i class="far fa-heart me-2"></i>
+                        Add to wish list
+                    </button>
+                    <br>
                     <ul class="list-unstyled small d-inline-block">
                         <li class="pl-1 py-2 mb-1 bg-white text-muted">
                             <strong class="text-uppercase text-dark">Category:</strong>
@@ -145,18 +148,20 @@
                                     <img class="img-fluid w-100" src="{{asset('assets/uploads/product/'.$item->image)}}"
                                          alt="...">
                                 </a>
-                                <div class="product-overlay">
-                                    <ul class="mb-0 list-inline">
-                                        <li class="list-inline-item m-0 p-0">
-                                            <a class="btn btn-sm btn-outline-dark" href="#!"><i
-                                                    class="far fa-heart"></i></a></li>
-                                        <li class="list-inline-item m-0 p-0">
-                                            <a class="btn btn-sm btn-dark" href="#!">Add to cart</a></li>
-                                        <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark"
-                                                                             href="#productView" data-bs-toggle="modal"><i
-                                                    class="fas fa-expand"></i></a></li>
-                                    </ul>
-                                </div>
+{{--                                <div class="product-overlay">--}}
+{{--                                    <ul class="mb-0 list-inline">--}}
+{{--                                        <li class="list-inline-item m-0 p-0">--}}
+{{--                                            <a class="btn btn-sm btn-outline-dark" href="#!"><i--}}
+{{--                                                    class="far fa-heart"></i></a></li>--}}
+{{--                                        <li class="list-inline-item m-0 p-0">--}}
+{{--                                            <button class="addToCartBtn btn btn-sm btn-dark" href="#!">Add to cart--}}
+{{--                                            </button>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark"--}}
+{{--                                                                             href="#productView" data-bs-toggle="modal"><i--}}
+{{--                                                    class="fas fa-expand"></i></a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
                             </div>
                             <h6><a class="reset-anchor"
                                    href="{{url($item->findCategory->slug . '/' . $item->slug)}}">{{$item->name}}</a>

@@ -3,6 +3,8 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
+
+@notifyCss
 <!-- gLightbox gallery-->
 <link rel="stylesheet" href="{{asset('vendor/glightbox/css/glightbox.min.css')}}">
 <!-- Range slider-->

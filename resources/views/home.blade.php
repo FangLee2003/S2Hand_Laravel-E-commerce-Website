@@ -67,19 +67,19 @@
                                 <a class="d-block" href="{{url($item->findCategory->slug . '/' . $item->slug)}}">
                                     <img class="img-fluid w-100" src="{{asset('assets/uploads/product/'.$item->image)}}"
                                          alt="..."></a>
-                                <div class="product-overlay">
-                                    <ul class="mb-0 list-inline">
-                                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark"
-                                                                                href="#!"><i
-                                                    class="far fa-heart"></i></a>
-                                        </li>
-                                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
-                                                                                href="cart.html">Add to cart</a></li>
-                                        <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark"
-                                                                             href="#productView" data-bs-toggle="modal"><i
-                                                    class="fas fa-expand"></i></a></li>
-                                    </ul>
-                                </div>
+{{--                                <div class="product-overlay">--}}
+{{--                                    <ul class="mb-0 list-inline">--}}
+{{--                                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark"--}}
+{{--                                                                                href="#!"><i--}}
+{{--                                                    class="far fa-heart"></i></a>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="list-inline-item m-0 p-0"><button class="addToCartBtn btn btn-sm btn-dark"--}}
+{{--                                                                                href="cart.html">Add to cart</button></li>--}}
+{{--                                        <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark"--}}
+{{--                                                                             href="#productView" data-bs-toggle="modal"><i--}}
+{{--                                                    class="fas fa-expand"></i></a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
                             </div>
                             <h6><a class="reset-anchor" href="detail.html">{{$item->name}}</a></h6>
                             <p class="small text-muted">{{$item->selling_price}}$</p>

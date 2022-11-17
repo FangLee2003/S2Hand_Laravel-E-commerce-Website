@@ -114,6 +114,7 @@
         </div>
     </div>
 </div>
+
 <!--   Core JS Files   -->
 <script src="{{ asset('js/core/popper.min.js') }}"></script>
 <script src="{{ asset('js/core/jquery.js') }}"></script>
@@ -121,6 +122,10 @@
 <script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>
 <script src="{{ asset('js/plugins/smooth-scrollbar.min.js') }}"></script>
 <script src="{{ asset('js/plugins/chartjs.min.js') }}"></script>
+
+<x:notify-messages />
+@notifyJs
+
 <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -381,11 +386,6 @@
 @if(session('success'))
     <script>
         swal('{{session('success')}}', '', 'success');
-    </script>
-@endif
-@if(session('warning'))
-    <script>
-        swal('{{session('warning')}}', '', 'warning');
     </script>
 @endif
 <!-- Github buttons -->

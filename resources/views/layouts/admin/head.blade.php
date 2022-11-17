@@ -20,6 +20,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
 <!-- CSS Files -->
+@notifyCss
 <link id="pagestyle" href="{{asset('css/material-dashboard.css')}}" rel="stylesheet"/>
 
 @yield('head')
