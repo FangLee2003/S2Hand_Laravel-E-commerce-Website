@@ -14,25 +14,28 @@
                         <!-- Link--><a class="nav-link {{Request::is('/')?'active':''}}" href="{{url('/')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <!-- Link--><a class="nav-link {{Request::is('clothes')?'active':''}}" href="{{url('clothes')}}">Clothes</a>
+                        <!-- Link--><a class="nav-link {{Request::is('clothes')?'active':''}}"
+                                       href="{{url('clothes')}}">Clothes</a>
                     </li>
                     <li class="nav-item">
-                        <!-- Link--><a class="nav-link {{Request::is('accessory')?'active':''}}" href="{{url('accessory')}}">Accessory</a>
+                        <!-- Link--><a class="nav-link {{Request::is('accessory')?'active':''}}"
+                                       href="{{url('accessory')}}">Accessory</a>
                     </li>
                     <li class="nav-item">
                         <!-- Link--><a class="nav-link {{Request::is('shoes')?'active':''}}" href="{{url('shoes')}}">Shoes</a>
                     </li>
                     <li class="nav-item">
-                        <!-- Link--><a class="nav-link {{Request::is('electronics')?'active':''}}" href="{{url('electronics')}}">Electronics</a>
+                        <!-- Link--><a class="nav-link {{Request::is('electronics')?'active':''}}"
+                                       href="{{url('electronics')}}">Electronics</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="cart.html"> <i
+                    <li class="nav-item"><a class="nav-link" href="{{url('/cart')}}"> <i
                                 class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small
                                 class="text-gray fw-normal">(2)</small></a></li>
                     <li class="nav-item"><a class="nav-link" href="#!"> <i class="far fa-heart me-1"></i><small
                                 class="text-gray fw-normal"> (0)</small></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!"> <i
+                    <li class="nav-item"><a class="nav-link" href="{{url('/login')}}"> <i
                                 class="fas fa-user me-1 text-gray fw-normal"></i>Login</a></li>
                 </ul>
             </div>

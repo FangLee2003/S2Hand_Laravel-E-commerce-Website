@@ -10,6 +10,18 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+    public function index()
+    {
+        $cartItems = Cart::where('user_id', Auth::id())->get();
+
+        $sum = 0;
+        foreach ($cartItems as $item) {
+            $sum += ($item->findProduct->selling_price * $item->product_quantity);
+        }
+
+        return view('user.cart', compact('cartItems', 'sum'));
+    }
+
     public function addProduct(Request $request)
     {
         $product_id = $request->input("product_id");
@@ -32,10 +44,24 @@ class CartController extends Controller
                     $cartItem->save();
                 }
 //                notify()->success($product->name . ' added to cart.');
-                return response()->json(['status' => $product->name . ' added to cart.']);
+                return response()->json(['success' => $product->name . ' added to cart.']);
             }
         } else {
-            return response()->json(['status' => $product->name . ' added to cart.']);
+            return response()->json(['warning' => 'Please login first!']);
+        }
+    }
+
+    public function deleteProduct(Request $request)
+    {
+        if (Auth::check()) {
+            $product_id = $request->input('product_id');
+            $cartItem = Cart::where('user_id', Auth::id())->where('product_id', $product_id)->first();
+            if ($cartItem) {
+                $cartItem->delete();
+                return response()->json(['success' => Product::where('id', $product_id)->first()->name . ' deleted from cart.']);
+            }
+        } else {
+            return response()->json(['warning' => 'Please login first!']);
         }
     }
 }

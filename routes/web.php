@@ -25,6 +25,14 @@ Route::get('/', 'User\HomeController@index');
 //    return view('admin');
 //})->middleware(['auth'])->name('admin');
 
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('cart', 'User\CartController@index');
+
+    Route::post('add-cart-item', 'User\CartController@addProduct');
+    Route::post('delete-cart-item', 'User\CartController@deleteProduct');
+});
+
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('admin', function () {
         return redirect('admin/dashboard');
@@ -58,7 +66,3 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 Route::get('{slug}', 'User\CategoryController@index');
 
 Route::get('{cate_slug}/{prod_slug}', 'User\ProductController@index');
-
-Route::group(['middleware' => ['auth']], function () {
-    Route::post('add-to-cart', 'User\CartController@addProduct');
-});

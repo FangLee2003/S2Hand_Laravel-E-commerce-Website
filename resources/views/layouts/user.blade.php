@@ -80,9 +80,7 @@
     <script src="{{asset('vendor/choices.js/public/assets/scripts/choices.min.js')}}"></script>
     <script src="{{asset('js/front.js')}}"></script>
     <script src="{{asset('js/cart.js')}}"></script>
-
-    @yield('script')
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         // ------------------------------------------------------- //
         //   Inject SVG Sprite -
@@ -114,9 +112,18 @@
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     // Laravel 7 or greater
-    <x:notify-messages />
+    <x:notify-messages/>
     @notifyJs
-
+    @if(session('success'))
+        <script>
+            swal('{{session('success')}}', '', 'success');
+        </script>
+    @endif
+    @if(session('warning'))
+        <script>
+            swal('{{session('warning')}}', '', 'warning');
+        </script>
+    @endif
     @yield('script')
 </div>
 </body>
