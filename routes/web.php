@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('add-cart-item', 'User\CartController@addProduct');
     Route::post('delete-cart-item', 'User\CartController@deleteProduct');
+    Route::post('update-cart-item', 'User\CartController@updateProduct');
 });
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {

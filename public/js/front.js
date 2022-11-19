@@ -95,16 +95,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	/* ===============================================================
-         PRODUCT QUNATITY
+         PRODUCT QUANTITY
       =============================================================== */
-	document.querySelectorAll('.dec-btn').forEach((el) => {
-		el.addEventListener('click', () => {
-			var siblings = el.parentElement.querySelector('input');
-			if (parseInt(siblings.value, 10) >= 1) {
-				siblings.value = parseInt(siblings.value, 10) - 1;
-			}
-		});
-	});
+	// document.querySelectorAll('.dec-btn').forEach((el) => {
+	// 	el.addEventListener('click', () => {
+	// 		var siblings = el.parentElement.querySelector('input');
+	// 		if (parseInt(siblings.value, 10) >= 1) {
+	// 			siblings.value = parseInt(siblings.value, 10) - 1;
+	// 		}
+	// 	});
+	// });
 	document.querySelectorAll('.admin-btn').forEach((el) => {
 		el.addEventListener('click', () => {
 			var siblings = el.parentElement.querySelector('input');

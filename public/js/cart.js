@@ -56,25 +56,50 @@ $('.delete-item').off().click(function (e) {
 $('.inc-btn').off().click(function (e) { // .off() to avoid duplicate events
     e.preventDefault()
 
-    var input = $(this).closest('.quantity').find('.quantity-input');
+    let product_id = $(this).closest('.cart-item').find('.product_id').val()
 
-    var value = parseInt(input.val(), 10)
+    let input = $(this).closest('.quantity').find('.quantity-input');
+
+    let value = parseInt(input.val(), 10)
     value = isNaN(value) ? '1' : value
 
-    var max = parseInt(input.attr("max"))
+    let max = parseInt(input.attr("max"))
     max = isNaN(max) ? '1' : max
 
     if (value < max) {
         value++
         input.val(value);
     }
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        method: "POST",
+        url: "/update-cart-item",
+        data: {
+            "product_id": product_id,
+            "product_quantity": value
+        },
+        success: function (response) {
+            if (response.success) {
+                console.log(response.success, '', 'success');
+            } else {
+                swal(response.warning, '', 'warning');
+            }
+        }
+    })
 })
 $('.dec-btn').off().click(function (e) {
     e.preventDefault()
 
-    var input = $(this).closest('.quantity').find('.quantity-input');
+    let product_id = $(this).closest('.cart-item').find('.product_id').val()
 
-    var value = parseInt(input.val(), 10)
+    let input = $(this).closest('.quantity').find('.quantity-input');
+
+    let value = parseInt(input.val(), 10)
     value = isNaN(value) ? '1' : value
 
     if (value > 1) {
@@ -82,22 +107,44 @@ $('.dec-btn').off().click(function (e) {
         input.val(value);
         console.log(value)
     }
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        method: "POST",
+        url: "/update-cart-item",
+        data: {
+            "product_id": product_id,
+            "product_quantity": value
+        },
+        success: function (response) {
+            if (response.success) {
+                console.log(response.success, '', 'success');
+            } else {
+                swal(response.warning, '', 'warning');
+            }
+        }
+    })
 })
 
-function getTotal() {
+$('.change-quantity').click(function (e) {
     let item = $('.cart-item');
+    console.log(item)
     let cartTotal = 0;
 
     item.each(function () {
-        let quantity = parseInt(this.find('.quantity-input').val(), 10)
-        let price = parseInt(this.find('.item-price').text(), 10);
+        let quantity = parseInt($(this).find('.quantity-input').val(), 10)
+        let price = parseInt($(this).find('.item-price').text(), 10);
 
         let itemTotal = quantity * price;
 
-        this.find('.item-total').text(itemTotal);
+        $(this).find('.item-total').text(itemTotal);
 
         cartTotal += itemTotal;
     });
 
     $('.cart-total').text(cartTotal);
-}
+})

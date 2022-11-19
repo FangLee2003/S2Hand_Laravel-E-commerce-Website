@@ -64,4 +64,23 @@ class CartController extends Controller
             return response()->json(['warning' => 'Please login first!']);
         }
     }
+
+    public function updateProduct(Request $request)
+    {
+        $product_id = $request->input("product_id");
+        $product_quantity = $request->input("product_quantity");
+        $cartItem = Cart::where('user_id', Auth::id())->where('product_id', $product_id)->first();
+
+        if (Auth::check()) {
+            if ($cartItem) {
+                $cartItem->product_quantity = $product_quantity;
+
+                $cartItem->update();
+//                notify()->success($product->name . ' added to cart.');
+                return response()->json(['success' => 'Quantity of ' . $cartItem->findProduct->name . ' updated.']);
+            }
+        } else {
+            return response()->json(['warning' => 'Please login first!']);
+        }
+    }
 }
