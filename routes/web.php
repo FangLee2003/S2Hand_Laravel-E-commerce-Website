@@ -28,10 +28,11 @@ Route::get('/', 'User\HomeController@index');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('cart', 'User\CartController@index');
-
     Route::post('add-cart-item', 'User\CartController@addProduct');
     Route::post('delete-cart-item', 'User\CartController@deleteProduct');
     Route::post('update-cart-item', 'User\CartController@updateProduct');
+
+    Route::get('checkout', 'User\CheckoutController@index');
 });
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {

@@ -44,30 +44,37 @@
                     </ul>
                     <p class="text-muted lead">{{$product->selling_price}}$</p>
                     <p class="text-sm mb-4">{{$product->description}}</p>
-                    <div class="row align-items-stretch mb-4">
-                        <div class="col-sm-4 pr-sm-0">
-                            <div
-                                class="border d-flex align-items-center justify-content-between py-1 px-3 bg-white border-white">
-                                <span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
-                                <div class="quantity">
-                                    <button class="dec-btn p-0">
-                                        <i class="fas fa-caret-left"></i>
-                                    </button>
-                                    <input class="quantity-input form-control border-0 shadow-0 p-0" type="text"
-                                           value="1" max="{{$product->quantity}}" name="quantity">
-                                    <button class="inc-btn p-0">
-                                        <i class="fas fa-caret-right"></i>
-                                    </button>
+                    @if($product->quantity > 0)
+                        <div class="row align-items-stretch mb-4">
+                            <div class="col-sm-4 pr-sm-0">
+                                <div
+                                    class="border d-flex align-items-center justify-content-between py-1 px-3 bg-white border-white">
+                                    <span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
+                                    <div class="quantity">
+                                        <button class="dec-btn p-0">
+                                            <i class="fas fa-caret-left"></i>
+                                        </button>
+                                        <input class="quantity-input form-control border-0 shadow-0 p-0 bg-transparent" type="text"
+                                               value="1"
+                                               max="{{$product->quantity - $product->findCart->product_quantity}}"
+                                               name="quantity" readonly>
+                                        <button class="inc-btn p-0">
+                                            <i class="fas fa-caret-right"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-3 pl-sm-0 mb-4">
-                        <button
-                            class="addToCartBtn d-inline-block btn btn-dark btn-outline-light"
-                            href="cart.html"><i class="fas fa-cart-plus px-1"></i>Add to cart
-                        </button>
-                    </div>
+                        <div class="col-sm-3 pl-sm-0 mb-4">
+                            <button
+                                class="addToCartBtn d-inline-block btn btn-dark btn-outline-light"
+                                href="cart.html"><i class="fas fa-cart-plus px-1"></i>Add to cart
+                            </button>
+                        </div>
+                    @else
+                        <div class="alert alert-danger">OUT OF STOCK</div>
+                    @endif
+
                     <button class="mb-3 d-inline-block btn btn-outline-dark" href="#!">
                         <i class="far fa-heart me-2"></i>
                         Add to wish list

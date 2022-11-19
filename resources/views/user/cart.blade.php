@@ -46,9 +46,6 @@
                             </tr>
                             </thead>
                             <tbody class="border-0">
-                            @php
-                                $total = 0;
-                            @endphp
                             @foreach($cartItems as $item)
                                 <tr class="cart-item">
                                     <input type="hidden" class="product_id" value="{{$item->findProduct->id}}">
@@ -73,11 +70,12 @@
                                                 <button class="dec-btn change-quantity p-0">
                                                     <i class="fas fa-caret-left"></i>
                                                 </button>
-                                                <input class="quantity-input form-control border-0 shadow-0 p-0"
+                                                <input class="quantity-input form-control border-0 shadow-0 p-0 bg-transparent"
                                                        type="text"
                                                        value="{{$item->product_quantity}}"
                                                        max="{{$item->findProduct->quantity}}"
                                                        name="quantity"
+                                                       readonly
                                                 >
                                                 <button class="inc-btn change-quantity p-0">
                                                     <i class="fas fa-caret-right"></i>
@@ -94,9 +92,7 @@
                                         </button>
                                     </td>
                                 </tr>
-                                @php
-                                    $total += $item->findProduct->selling_price*$item->product_quantity;
-                                @endphp
+
                             @endforeach
                             </tbody>
                         </table>

@@ -27,7 +27,13 @@ class Product extends Model
         'image'
     ];
 
-    public function findCategory(){
+    public function findCategory()
+    {
         return $this->belongsTo(Category::class, 'cate_id', 'id');
+    }
+
+    public function findCart()
+    {
+        return $this->belongsTo(Cart::class, 'id', 'product_id');
     }
 }
