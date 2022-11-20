@@ -24,7 +24,7 @@ class CheckoutController extends Controller
 
             return view('user.checkout', compact('cartItems', 'sum'));
         } else {
-            return redirect('/')->with('warning', 'Cart is empty');
+            return back()->with('warning', 'Cart is empty');
         }
     }
 
@@ -42,6 +42,7 @@ class CheckoutController extends Controller
             $order->address2 = $request->input('address2');
             $order->postcode = $request->input('postcode');
             $order->notes = $request->input('notes');
+            $order->total_price = $request->input('total_price');
             $order->tracking_number = rand(1111, 9999);
 
             $order->save();
@@ -55,7 +56,7 @@ class CheckoutController extends Controller
                     'product_quantity' => $item->product_quantity]);
 
                 $product = Product::where('id', $item->product_id)->first();
-                $product->quantity-=$item->product_quantity;
+                $product->quantity -= $item->product_quantity;
 
                 $product->update();
             }
@@ -63,20 +64,11 @@ class CheckoutController extends Controller
             $cartItems = Cart::where('user_id', Auth::id())->get();
             Cart::destroy($cartItems);
 
-            $user = Auth::user();
-            $user->name = $request->input('name');
-            $user->phone = $request->input('phone');
-            $user->city = $request->input('city');
-            $user->country = $request->input('country');
-            $user->address1 = $request->input('address1');
-            $user->address2 = $request->input('address2');
-            $user->postcode = $request->input('postcode');
-
-            $user->update();
+            AccountController::updateAccount($request);
 
             return redirect('/')->with('success', 'Order successfully');
         } catch (Exception $e) {
-            return redirect('/checkout')->with('warning', 'Missing information');
+            return back()->with('warning', 'Missing information');
         }
     }
 }

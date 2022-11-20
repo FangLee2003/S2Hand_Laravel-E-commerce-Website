@@ -24,6 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('address1');
             $table->string('address2')->nullable();
             $table->string('notes')->nullable();
+            $table->string('total_price');
             $table->tinyInteger('status')->default('0');
             $table->string('tracking_number');
             $table->timestamps();

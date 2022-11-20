@@ -20,6 +20,7 @@ class Order extends Model
         'address2',
         'postcode',
         'notes',
+        'total_price',
         'status',
         'tracking_number'];
 }

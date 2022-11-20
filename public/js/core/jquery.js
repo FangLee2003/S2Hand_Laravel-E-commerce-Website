@@ -6782,7 +6782,7 @@
             }
         }
 
-        // Account for positive content-box scroll gutter when requested by providing computedVal
+        // AccountController for positive content-box scroll gutter when requested by providing computedVal
         if ( !isBorderBox && computedVal >= 0 ) {
 
             // offsetWidth/offsetHeight is a rounded sum of content, padding, scroll gutter, and border
@@ -7087,7 +7087,7 @@
                         ) :
                         0;
 
-                // Account for unreliable border-box dimensions by comparing offset* to computed and
+                // AccountController for unreliable border-box dimensions by comparing offset* to computed and
                 // faking a content-box to get border and padding (gh-3699)
                 if ( isBorderBox && scrollboxSizeBuggy ) {
                     subtract -= Math.ceil(
@@ -10565,7 +10565,7 @@
             } else {
                 offset = this.offset();
 
-                // Account for the *real* offset parent, which can be the document or its root element
+                // AccountController for the *real* offset parent, which can be the document or its root element
                 // when a statically positioned element is identified
                 doc = elem.ownerDocument;
                 offsetParent = elem.offsetParent || doc.documentElement;

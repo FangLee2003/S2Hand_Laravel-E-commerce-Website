@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('postcode');
             $table->string('address1');
             $table->string('address2');
+            $table->string('avatar')->default('default.png');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->tinyInteger('role_as')->default('0');

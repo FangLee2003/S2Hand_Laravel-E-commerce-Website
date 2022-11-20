@@ -25,8 +25,16 @@ Route::get('/', 'User\HomeController@index');
 //    return view('admin');
 //})->middleware(['auth'])->name('admin');
 
-
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('account', 'User\AccountController@index');
+    Route::post('account', 'User\AccountController@updateAccount');
+
+    Route::get('password', 'User\PasswordController@index');
+    Route::post('password', 'User\PasswordController@updatePassword');
+
+    Route::get('orders', 'User\OrderController@index');
+    Route::post('orders', 'User\OrderController@updateOrder');
+
     Route::get('cart', 'User\CartController@index');
     Route::post('add-cart-item', 'User\CartController@addProduct');
     Route::post('delete-cart-item', 'User\CartController@deleteProduct');
