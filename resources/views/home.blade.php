@@ -26,15 +26,15 @@
                 <p class="small text-muted small text-uppercase mb-1">Carefully created collections</p>
                 <h2 class="h5 text-uppercase mb-4">Browse our categories</h2>
             </header>
-            <div class="row">
-                <div class="col-md-4">
+            <div class="row ">
+                <div class="col-sm-4">
                     <a class="category-item" href="{{url($category[0]->slug)}}">
                         <img class="img-fluid" src="{{asset('assets/uploads/category/'.$category[0]->image)}}" alt=""/>
                         <strong class="category-item-title">{{$category[0]->name}}</strong>
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <a class="category-item mb-4" href="{{url($category[1]->slug)}}">
+                <div class="col-sm-4">
+                    <a class="category-item mb-sm-2 mb-md-3 mb-lg-4" href="{{url($category[1]->slug)}}">
                         <img class="img-fluid" src="{{asset('assets/uploads/category/'.$category[1]->image)}}" alt=""/>
                         <strong class="category-item-title">{{$category[1]->name}}</strong>
                     </a>
@@ -43,7 +43,7 @@
                         <strong class="category-item-title">{{$category[2]->name}}</strong>
                     </a>
                 </div>
-                <div class="col-md-4">
+                <div class="col-sm-4">
                     <a class="category-item" href="{{url($category[3]->slug)}}">
                         <img class="img-fluid" src="{{asset('assets/uploads/category/'.$category[3]->image)}}" alt=""/>
                         <strong class="category-item-title">{{$category[3]->name}}</strong>
@@ -60,26 +60,26 @@
             <div class="row">
                 <!-- PRODUCT-->
                 @foreach($trending_products as $item)
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
                         <div class="product text-center">
                             <div class="position-relative mb-3">
                                 <div class="badge text-white bg-"></div>
                                 <a class="d-block" href="{{url($item->findCategory->slug . '/' . $item->slug)}}">
                                     <img class="img-fluid w-100" src="{{asset('assets/uploads/product/'.$item->image)}}"
                                          alt="..."></a>
-{{--                                <div class="product-overlay">--}}
-{{--                                    <ul class="mb-0 list-inline">--}}
-{{--                                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark"--}}
-{{--                                                                                href="#!"><i--}}
-{{--                                                    class="far fa-heart"></i></a>--}}
-{{--                                        </li>--}}
-{{--                                        <li class="list-inline-item m-0 p-0"><button class="addToCartBtn btn btn-sm btn-dark"--}}
-{{--                                                                                href="cart.html">Add to cart</button></li>--}}
-{{--                                        <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark"--}}
-{{--                                                                             href="#productView" data-bs-toggle="modal"><i--}}
-{{--                                                    class="fas fa-expand"></i></a></li>--}}
-{{--                                    </ul>--}}
-{{--                                </div>--}}
+                                {{--                                <div class="product-overlay">--}}
+                                {{--                                    <ul class="mb-0 list-inline">--}}
+                                {{--                                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark"--}}
+                                {{--                                                                                href="#!"><i--}}
+                                {{--                                                    class="far fa-heart"></i></a>--}}
+                                {{--                                        </li>--}}
+                                {{--                                        <li class="list-inline-item m-0 p-0"><button class="addToCartBtn btn btn-sm btn-dark"--}}
+                                {{--                                                                                href="cart.html">Add to cart</button></li>--}}
+                                {{--                                        <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark"--}}
+                                {{--                                                                             href="#productView" data-bs-toggle="modal"><i--}}
+                                {{--                                                    class="fas fa-expand"></i></a></li>--}}
+                                {{--                                    </ul>--}}
+                                {{--                                </div>--}}
                             </div>
                             <h6><a class="reset-anchor" href="detail.html">{{$item->name}}</a></h6>
                             <p class="small text-muted">{{$item->selling_price}}$</p>
@@ -92,7 +92,7 @@
         <section class="py-5 bg-light">
             <div class="container">
                 <div class="row text-center gy-3">
-                    <div class="col-lg-4">
+                    <div class="col-md-4">
                         <div class="d-inline-block">
                             <div class="d-flex align-items-end">
                                 <svg class="svg-icon svg-icon-big svg-icon-light">
@@ -105,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-md-4">
                         <div class="d-inline-block">
                             <div class="d-flex align-items-end">
                                 <svg class="svg-icon svg-icon-big svg-icon-light">
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-md-4">
                         <div class="d-inline-block">
                             <div class="d-flex align-items-end">
                                 <svg class="svg-icon svg-icon-big svg-icon-light">
@@ -138,11 +138,11 @@
         <section class="py-5">
             <div class="container p-0">
                 <div class="row gy-3">
-                    <div class="col-lg-6">
+                    <div class="col-md-6">
                         <h5 class="text-uppercase">Let's be friends!</h5>
                         <p class="text-sm text-muted mb-0">We are happy if we can be friends.</p>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-md-6">
                         <form action="#">
                             <div class="input-group">
                                 <input class="form-control form-control-lg" type="email"

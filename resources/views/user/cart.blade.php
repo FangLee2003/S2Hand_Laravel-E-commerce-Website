@@ -64,6 +64,7 @@
                                         <p class="mb-0 small item-price">{{$item->findProduct->selling_price}}</p>
                                     </td>
                                     <td class="p-3 align-middle border-light">
+                                        @if($item->findProduct->quantity > 0)
                                         <div class="border d-flex align-items-center justify-content-between px-3"><span
                                                 class="small text-uppercase text-gray headings-font-family">Quantity</span>
                                             <div class="quantity">
@@ -82,6 +83,9 @@
                                                 </button>
                                             </div>
                                         </div>
+                                        @else
+                                            <div class="alert alert-danger">OUT OF STOCK</div>
+                                        @endif
                                     </td>
                                     <td class="p-3 align-middle border-light">
                                         <p class="mb-0 small item-total">{{$item->findProduct->selling_price*$item->product_quantity}}</p>

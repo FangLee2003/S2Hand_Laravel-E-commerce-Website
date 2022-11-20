@@ -38,7 +38,7 @@
                             <input class="form-check-input" type="checkbox" id="checkbox_2">
                             <label class="form-check-label" for="checkbox_2">Trending</label>
                         </div>
-                        <div class="price-range pt-4 mb-5">
+                        <div class="price-range pt-4 mt-3">
                             <div id="range"></div>
                             <div class="row pt-2">
                                 <div class="col-6"><strong class="small fw-bold text-uppercase">From</strong>
@@ -81,25 +81,26 @@
                                     <div class="product text-center">
                                         <div class="mb-3 position-relative">
                                             <div class="badge text-white bg-"></div>
-                                            <a class="d-block" href="{{url($item->findCategory->slug . '/' . $item->slug)}}">
+                                            <a class="d-block"
+                                               href="{{url($item->findCategory->slug . '/' . $item->slug)}}">
                                                 <img class="img-fluid w-100"
                                                      src="{{asset('assets/uploads/product/'.$item->image)}}" alt="..."></a>
-{{--                                            <div class="product-overlay">--}}
-{{--                                                <ul class="mb-0 list-inline">--}}
-{{--                                                    <li class="list-inline-item m-0 p-0"><a--}}
-{{--                                                            class="btn btn-sm btn-outline-dark" href="#!"><i--}}
-{{--                                                                class="far fa-heart"></i></a></li>--}}
-{{--                                                    <li class="list-inline-item m-0 p-0"><button class="addToCartBtn btn btn-sm btn-dark"--}}
-{{--                                                                                            href="cart.html">Add to--}}
-{{--                                                            cart</button>--}}
-{{--                                                    </li>--}}
-{{--                                                    <li class="list-inline-item mr-0"><a--}}
-{{--                                                            class="btn btn-sm btn-outline-dark"--}}
-{{--                                                            href="#productView"--}}
-{{--                                                            data-bs-toggle="modal"><i--}}
-{{--                                                                class="fas fa-expand"></i></a></li>--}}
-{{--                                                </ul>--}}
-{{--                                            </div>--}}
+                                            {{--                                            <div class="product-overlay">--}}
+                                            {{--                                                <ul class="mb-0 list-inline">--}}
+                                            {{--                                                    <li class="list-inline-item m-0 p-0"><a--}}
+                                            {{--                                                            class="btn btn-sm btn-outline-dark" href="#!"><i--}}
+                                            {{--                                                                class="far fa-heart"></i></a></li>--}}
+                                            {{--                                                    <li class="list-inline-item m-0 p-0"><button class="addToCartBtn btn btn-sm btn-dark"--}}
+                                            {{--                                                                                            href="cart.html">Add to--}}
+                                            {{--                                                            cart</button>--}}
+                                            {{--                                                    </li>--}}
+                                            {{--                                                    <li class="list-inline-item mr-0"><a--}}
+                                            {{--                                                            class="btn btn-sm btn-outline-dark"--}}
+                                            {{--                                                            href="#productView"--}}
+                                            {{--                                                            data-bs-toggle="modal"><i--}}
+                                            {{--                                                                class="fas fa-expand"></i></a></li>--}}
+                                            {{--                                                </ul>--}}
+                                            {{--                                            </div>--}}
                                         </div>
                                         <h6><a class="reset-anchor" href="detail.html">{{$item->name}}</a></h6>
                                         <p class="small text-muted">{{$item->selling_price}}$</p>

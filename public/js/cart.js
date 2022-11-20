@@ -19,6 +19,7 @@ $('.addToCartBtn').off().click(function (e) {
         },
         success: function (response) {
             if (response.success) {
+                window.location.reload();
                 swal(response.success, '', 'success');
             } else {
                 swal(response.warning, '', 'warning');

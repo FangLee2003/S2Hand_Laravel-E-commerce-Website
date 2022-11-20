@@ -16,7 +16,7 @@ class CategoryController extends Controller
 
             return view('user.category', compact('category', 'product'));
         } else {
-            return redirect('/')->with('status', '404 NOT FOUND!');
+            return redirect('/')->with('warning', '404 NOT FOUND!');
         }
     }
 }

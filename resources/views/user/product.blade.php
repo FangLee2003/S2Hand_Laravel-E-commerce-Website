@@ -8,7 +8,7 @@
     <section class="py-5 offset-1">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-lg-4 mb-3">
+                <div class="col-lg-4 col-md-6 mb-3">
                     <!-- PRODUCT SLIDER-->
                     <div class="row m-sm-0">
                         <div class="col-sm-12 order-1 order-sm-2">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <!-- PRODUCT DETAILS-->
-                <div class="col-lg-8">
+                <div class="col-lg-8 col-md-6">
                     <!-- PRODUCT DETAILS-->
                     <h1>{{$product->name}}</h1>
                     <input type="hidden" class="product_id" value="{{$product->id}}">
@@ -44,8 +44,8 @@
                     </ul>
                     <p class="text-muted lead">{{$product->selling_price}}$</p>
                     <p class="text-sm mb-4">{{$product->description}}</p>
-                    @if($product->quantity > 0)
-                        <div class="row align-items-stretch mb-4">
+                    @if($product->quantity - $cartItem_quantity > 0)
+                        <div class="row justify-content-start align-items-stretch mb-4">
                             <div class="col-sm-4 pr-sm-0">
                                 <div
                                     class="border d-flex align-items-center justify-content-between py-1 px-3 bg-white border-white">
@@ -54,9 +54,10 @@
                                         <button class="dec-btn p-0">
                                             <i class="fas fa-caret-left"></i>
                                         </button>
-                                        <input class="quantity-input form-control border-0 shadow-0 p-0 bg-transparent" type="text"
+                                        <input class="quantity-input form-control border-0 shadow-0 p-0 bg-transparent"
+                                               type="text"
                                                value="1"
-                                               max="{{$product->quantity - $product->findCart->product_quantity}}"
+                                               max="{{$product->quantity - $cartItem_quantity}}"
                                                name="quantity" readonly>
                                         <button class="inc-btn p-0">
                                             <i class="fas fa-caret-right"></i>

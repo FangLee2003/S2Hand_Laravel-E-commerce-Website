@@ -8,7 +8,7 @@
 
 .card .card-header h4 {
     color: white;
-    text-align: center;
+    margin: auto auto;
 }
 
 .card .card-body input textarea {
