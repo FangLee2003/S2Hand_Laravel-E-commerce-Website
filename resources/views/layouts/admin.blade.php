@@ -124,13 +124,23 @@
 <script src="{{ asset('js/plugins/chartjs.min.js') }}"></script>
 <script src="{{asset('js/chart.js')}}"></script>
 
-<x:notify-messages />
+<x:notify-messages/>
 @notifyJs
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @if(session('success'))
     <script>
         swal('{{session('success')}}', '', 'success');
+    </script>
+@endif
+@if(session('warning'))
+    <script>
+        swal('{{session('warning')}}', '', 'warning');
+    </script>
+@endif
+@if ($errors->any())
+    <script>
+        swal("{{$errors}}", '', 'warning');
     </script>
 @endif
 <!-- Github buttons -->

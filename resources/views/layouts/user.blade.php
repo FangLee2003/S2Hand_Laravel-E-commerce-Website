@@ -125,6 +125,11 @@
             swal('{{session('warning')}}', '', 'warning');
         </script>
     @endif
+    @if ($errors->any())
+        <script>
+            swal('{{$errors}}', '', 'warning');
+        </script>
+    @endif
     @yield('script')
 </div>
 </body>

@@ -6,8 +6,8 @@
                                          href="/password">Password</a></li>
         <li class="col-3 text-center"><a class=" {{Request::is('notification')? 'active' : 'text-white '}}"
                                          href="/notification">Notification</a></li>
-        <li class="col-3 text-center"><a class=" {{Request::is('order')? 'active' : 'text-white '}}"
-                                         href="/order">Order</a>
+        <li class="col-3 text-center"><a class=" {{Request::is('orders')? 'active' : 'text-white '}}"
+                                         href="/orders">Order</a>
         </li>
     </ul>
 </div>

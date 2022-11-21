@@ -3,7 +3,7 @@
 
 <head>
     @include('layouts.user.head')
-    <title>Change password - 2HAND</title>
+    <title>Orders - 2HAND</title>
     {{--    <link id="pagestyle" href="{{asset('css/custom.css')}}" rel="stylesheet"/>--}}
 </head>
 
@@ -15,32 +15,39 @@
         @include('layouts.user.sidebar')
 
         <div class="card-body my-3">
-            <form action="/password" method="POST">
-                @csrf
-                <div class="row">
-                    <div class="col-md-4 offset-4 mb-3">
-                        <label class="form-label text-sm" for="current_password">Current password </label>
-                        <input class="form-control form-control-lg" type="password" id="current_password"
-                               name="current_password"
-                               placeholder="Current password">
-                    </div>
-                    <div class="col-md-4 offset-4 mb-3">
-                        <label class="form-label text-sm" for="new_password">New password</label>
-                        <input class="form-control form-control-lg" type="password" id="new_password"
-                               name="new_password"
-                               placeholder="New password">
-                    </div>
-                    <div class="col-md-4 offset-4 mb-3">
-                        <label class="form-label text-sm" for="confirm_password">Confirm password </label>
-                        <input class="form-control form-control-lg" type="password" id="confirm_password"
-                               name="confirm_password"
-                               placeholder="Confirm password">
-                    </div>
-                    <div class="col-md-12 mb-3 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </div>
-            </form>
+            <table class="table">
+                <thead>
+                <tr class="border-0">
+                    <th class="border-0">ID</th>
+                    <th class="border-0">Time</th>
+                    <th class="border-0">Tracking number</th>
+                    <th class="border-0">Total price</th>
+                    <th class="border-0">Status</th>
+                    <th class="border-0">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($orders as $order)
+                    <tr class="border-0">
+                        <td class="border-0">{{$order->id}}</td>
+                        <td class="border-0">{{$order->created_at}}</td>
+                        <td class="border-0">{{$order->tracking_number}}</td>
+                        <td class="border-0">{{$order->total_price}}</td>
+                        <td class="border-0">{{$order->status == 0?'pending':'completed'}}</td>
+                        <td class="border-0">
+                            <a class="btn btn-primary btn-round" href="{{'/order/'.$order->id}}">
+                                View details
+                            </a>
+                            @if($order->status == '0')
+                                <a class="btn btn-dark btn-round" href="{{'/cancel-order/'.$order->id}}">
+                                    Cancel
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
+                </tbody>
+                @endforeach
+            </table>
         </div>
     </div>
 </div>

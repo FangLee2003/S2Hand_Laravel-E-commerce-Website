@@ -103,9 +103,19 @@
 @if(session('success'))
     <script>
         swal('{{session('success')}}', '', 'success');
+    </script>
+@endif
+@if(session('warning'))
+    <script>
         swal('{{session('warning')}}', '', 'warning');
     </script>
 @endif
+@if ($errors->any())
+    <script>
+        swal('{{$errors}}', '', 'warning');
+    </script>
+@endif
+
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
