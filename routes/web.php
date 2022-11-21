@@ -76,6 +76,16 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 
         Route::get('orders', 'Admin\OrderController@index');
         Route::get('complete-order/{id}', 'Admin\OrderController@completeOrder');
+
+        Route::get('accounts', 'Admin\AccountController@index');
+
+        Route::get('add-account', 'Admin\AccountController@getAdd');
+        Route::post('add-account', 'Admin\AccountController@postAdd');
+
+        Route::get('edit-account/{id}', 'Admin\AccountController@getEdit');
+        Route::put('edit-account/{id}', 'Admin\AccountController@putEdit');
+
+        Route::get('delete-account/{id}', 'Admin\AccountController@delete');
     });
 });
 
