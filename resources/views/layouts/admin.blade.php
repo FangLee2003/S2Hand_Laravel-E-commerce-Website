@@ -123,6 +123,8 @@
 <script src="{{ asset('js/plugins/smooth-scrollbar.min.js') }}"></script>
 <script src="{{ asset('js/plugins/chartjs.min.js') }}"></script>
 <script src="{{asset('js/chart.js')}}"></script>
+<script src="{{asset('js/cart.js')}}"></script>
+<script src="{{asset('js/countCartWishlist.js')}}"></script>
 
 <x:notify-messages/>
 @notifyJs

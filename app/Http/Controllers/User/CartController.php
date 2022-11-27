@@ -83,4 +83,10 @@ class CartController extends Controller
             return response()->json(['warning' => 'Please login first!']);
         }
     }
+
+    public function countProduct(Request $request)
+    {
+        $countCart = Cart::where('user_id', Auth::id())->get()->count();
+        return response()->json(['countCart' => $countCart]);
+    }
 }

@@ -32,19 +32,25 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('password', 'User\PasswordController@index');
     Route::post('password', 'User\PasswordController@updatePassword');
 
-    Route::get('orders', 'User\OrderController@index');
-    Route::get('order/{id}', 'User\OrderController@orderDetails');
-
-    Route::get('cancel-order/{id}', 'User\OrderController@cancelOrder');
-    Route::post('cancel-order/{id}', 'User\OrderController@cancelOrder');
+    Route::get('wishlist', 'User\WishlistController@index');
+    Route::post('update-wishlist-item', 'User\WishlistController@updateProduct');
 
     Route::get('cart', 'User\CartController@index');
     Route::post('add-cart-item', 'User\CartController@addProduct');
     Route::post('delete-cart-item', 'User\CartController@deleteProduct');
     Route::post('update-cart-item', 'User\CartController@updateProduct');
 
+    Route::get('count-wishlist-item', 'User\WishlistController@countProduct');
+    Route::get('count-cart-item', 'User\CartController@countProduct');
+
     Route::get('checkout', 'User\CheckoutController@index');
     Route::post('checkout', 'User\CheckoutController@placeOrder');
+
+    Route::get('orders', 'User\OrderController@index');
+    Route::get('order/{id}', 'User\OrderController@orderDetails');
+
+    Route::get('cancel-order/{id}', 'User\OrderController@cancelOrder');
+    Route::post('cancel-order/{id}', 'User\OrderController@cancelOrder');
 });
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
@@ -90,5 +96,4 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 });
 
 Route::get('{slug}', 'User\CategoryController@index');
-
 Route::get('{cate_slug}/{prod_slug}', 'User\ProductController@index');

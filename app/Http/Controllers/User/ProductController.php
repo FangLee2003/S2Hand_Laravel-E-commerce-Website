@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\isNan;
 
 class ProductController extends Controller
@@ -21,7 +23,9 @@ class ProductController extends Controller
                 $cartItem = Cart::where('product_id', $product->id)->first();
                 $cartItem_quantity = $cartItem ? $cartItem->product_quantity : 0;
 
-                return view('user.product', compact('product', 'related_product', 'cartItem_quantity'));
+                $checkWishlist = Wishlist::where('user_id', Auth::id())->where('product_id', $product->id)->exists() ? '1' : '0';
+
+                return view('user.product', compact('product', 'related_product', 'cartItem_quantity', 'checkWishlist'));
             }
         }
     }

@@ -79,8 +79,10 @@
     <script src="{{asset('vendor/swiper/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('vendor/choices.js/public/assets/scripts/choices.min.js')}}"></script>
     <script src="{{asset('js/front.js')}}"></script>
-    <script src="{{asset('js/cart.js')}}"></script>
     <script src="{{asset('js/chart.js')}}"></script>
+    <script src="{{asset('js/cart.js')}}"></script>
+    <script src="{{asset('js/wishlist.js')}}"></script>
+    <script src="{{asset('js/countCartWishlist.js')}}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         // ------------------------------------------------------- //

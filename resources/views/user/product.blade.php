@@ -76,8 +76,12 @@
                         <div class="alert alert-danger">OUT OF STOCK</div>
                     @endif
 
-                    <button class="mb-3 d-inline-block btn btn-outline-dark" href="#!">
-                        <i class="far fa-heart me-2"></i>
+                    <button class="addToWishlistBtn mb-3 d-inline-block btn btn-outline-dark" href="#!">
+                        @if($checkWishlist == '1')
+                            <i class="fas fa-heart me-2"></i>
+                        @else
+                            <i class="far fa-heart me-2"></i>
+                        @endif
                         Add to wish list
                     </button>
                     <br>
