@@ -13,9 +13,8 @@
                 <div class="row px-4 px-lg-5">
                     <div class="col-lg-6">
                         <p class="text-muted small text-uppercase mb-2">New Inspiration 2022</p>
-                        <h1 class="h2 text-uppercase mb-3">20% off on new season</h1><a class="btn btn-dark"
-                                                                                        href="shop.html">Browse
-                            collections</a>
+                        <h1 class="h2 text-uppercase mb-3">20% off on new season</h1>
+{{--                        <a class="btn btn-dark" href="/">Browse collections</a>--}}
                     </div>
                 </div>
             </div>
