@@ -101,11 +101,18 @@
                                             <li class="border-bottom my-2"></li>
                                         @endforeach
                                         <li class="d-flex align-items-center justify-content-between mt-3"><strong
-                                                class="small fw-bold">Total</strong>
+                                                class="text-bold">Total</strong>
                                             <span class="justify-content-end"><input
                                                     class="form-control bg-transparent border-0 p-0 text-right"
                                                     type="text"
                                                     value="{{$order->total_price}}" name="total_price"></span>
+                                        </li>
+                                        <li class="d-flex align-items-center justify-content-between mt-3"><strong
+                                                class="text-bold">Payment method</strong>
+                                            <span class="justify-content-end"><input
+                                                    class="form-control bg-transparent border-0 p-0 text-right"
+                                                    type="text"
+                                                    value="{{$order->payment_method}}" name="payment_method"></span>
                                         </li>
                                     </ul>
                                     @if($order->status == '0')

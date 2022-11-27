@@ -43,6 +43,7 @@ class CheckoutController extends Controller
             $order->postcode = $request->input('postcode');
             $order->notes = $request->input('notes');
             $order->total_price = $request->input('total_price');
+            $order->payment_method = $request->input('payment_method') ? $request->input('payment_method') : 'COD';
             $order->tracking_number = rand(1111, 9999);
 
             $order->save();
@@ -66,7 +67,7 @@ class CheckoutController extends Controller
 
             AccountController::updateAccount($request);
 
-            return redirect('/')->with('success', 'Order successfully');
+            return redirect('/orders')->with('success', 'Order successfully');
         } catch (Exception $e) {
             return back()->with('warning', 'Missing information');
         }

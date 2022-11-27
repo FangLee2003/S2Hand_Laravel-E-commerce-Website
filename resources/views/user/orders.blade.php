@@ -22,6 +22,7 @@
                     <th class="border-0">Time</th>
                     <th class="border-0">Tracking number</th>
                     <th class="border-0">Total price</th>
+                    <th class="border-0">Payment method</th>
                     <th class="border-0">Status</th>
                     <th class="border-0">Action</th>
                 </tr>
@@ -33,6 +34,7 @@
                         <td class="border-0">{{$order->created_at}}</td>
                         <td class="border-0">{{$order->tracking_number}}</td>
                         <td class="border-0">{{$order->total_price}}</td>
+                        <td class="border-0">{{$order->payment_method}}</td>
                         <td class="border-0">{{$order->status == 0?'pending':'completed'}}</td>
                         <td class="border-0">
                             <a class="btn btn-primary btn-round" href="{{'/order/'.$order->id}}">

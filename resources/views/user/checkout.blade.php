@@ -55,10 +55,8 @@
                             </div>
                             <div class="col-lg-4 form-group">
                                 <label class="form-label text-sm" for="country">Country</label>
-                                <select class="country" id="country" name="country"
-                                        data-customclass="form-control form-control-lg rounded-0">
-                                    <option value>Choose your country</option>
-                                </select>
+                                <input class="form-control form-control-lg" type="text" id="country" name="country"
+                                       placeholder="country" value="{{Auth::user()->country}}">
                             </div>
                             <div class="col-lg-4">
                                 <label class="form-label text-sm" for="postcode">Postcode </label>
@@ -100,13 +98,21 @@
                                         <li class="border-bottom my-2"></li>
                                     @endforeach
                                     <li class="d-flex align-items-center justify-content-between mt-3"><strong
-                                            class= "small fw-bold">Total</strong>
-                                        <span class="justify-content-end"><input class="form-control bg-transparent border-0 p-0 text-right" type="text"
-                                                     value="{{$sum}}" name="total_price" readonly></span>
+                                            class="small fw-bold">Total</strong>
+                                        <span class="justify-content-end"><input
+                                                class="form-control bg-transparent border-0 p-0 text-right" type="text"
+                                                id="total_price" value="{{$sum}}" name="total_price" readonly></span>
                                     </li>
 
                                 </ul>
-                                <button class="btn btn-dark form-control" type="submit">Place order</button>
+                                <button class="btn btn-dark form-control mb-3 p-2 rounded" type="submit">
+                                    Cash on delivery
+                                </button>
+                                <div id="smart-button-container">
+                                    <div style="text-align: center;">
+                                        <div id="paypal-button-container"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -114,4 +120,49 @@
             </form>
         </section>
     </div>
+@endsection
+
+@section('script')
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AUcvAL7W61pZB2GaWEVXRqAAdgK0Y9b9vc2HG8oHbjWBVDwSYffIiUlXtI7vYPOO5QxLkeD3rGAtRlxt"></script>
+    <script>
+        function initPayPalButton() {
+            paypal.Buttons({
+                style: {
+                    shape: 'rect',
+                    color: 'black',
+                    layout: 'vertical',
+                    label: 'paypal',
+                },
+
+                createOrder: function (data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{"amount": {"currency_code": "USD", "value": '{{$sum}}'}}]
+                    });
+                },
+
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (orderData) {
+                        // Full available details
+                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                        // Show a success message within this page, e.g.
+                        const element = document.getElementById('paypal-button-container');
+                        element.innerHTML = '';
+                        element.innerHTML = '<h4>Thank you for your payment!</h4>';
+
+                        checkout();
+
+                        window.location.href = '/orders';
+                    });
+                },
+
+                onError: function (err) {
+                    console.log(err);
+                }
+            }).render('#paypal-button-container');
+        }
+
+        initPayPalButton();
+    </script>
 @endsection

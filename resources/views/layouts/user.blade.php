@@ -82,6 +82,7 @@
     <script src="{{asset('js/chart.js')}}"></script>
     <script src="{{asset('js/cart.js')}}"></script>
     <script src="{{asset('js/wishlist.js')}}"></script>
+    <script src="{{asset('js/checkout.js')}}"></script>
     <script src="{{asset('js/countCartWishlist.js')}}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>

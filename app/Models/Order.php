@@ -21,6 +21,7 @@ class Order extends Model
         'postcode',
         'notes',
         'total_price',
+        'payment_method',
         'status',
         'tracking_number'];
 }
