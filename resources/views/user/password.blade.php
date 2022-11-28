@@ -45,35 +45,7 @@
     </div>
 </div>
 @include('layouts.user.footer')
-
-<!--   Core JS Files   -->
-<script src="{{ asset('js/core/popper.min.js') }}"></script>
-<script src="{{ asset('js/core/jquery.js') }}"></script>
-<script src="{{ asset('js/core/bootstrap.js') }}"></script>
-<script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ asset('js/plugins/smooth-scrollbar.min.js') }}"></script>
-<script src="{{ asset('js/plugins/chartjs.min.js') }}"></script>
-<script src="{{asset('js/chart.js')}}"></script>
-
-<x:notify-messages/>
-@notifyJs
-
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-@if(session('success'))
-    <script>
-        swal('{{session('success')}}', '', 'success');
-    </script>
-@endif
-@if(session('warning'))
-    <script>
-        swal('{{session('warning')}}', '', 'warning');
-    </script>
-@endif
-@if ($errors->any())
-    <script>
-        swal("{{$errors}}", '', 'warning');
-    </script>
-@endif
+@include('layouts.user.script')
 
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>

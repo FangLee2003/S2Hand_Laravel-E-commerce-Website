@@ -128,7 +128,7 @@
     </div>
 </div>
 @include('layouts.user.footer')
-
+@include('layouts.user.script')
 <!--   Core JS Files   -->
 <script src="{{ asset('js/core/popper.min.js') }}"></script>
 <script src="{{ asset('js/core/jquery.js') }}"></script>
