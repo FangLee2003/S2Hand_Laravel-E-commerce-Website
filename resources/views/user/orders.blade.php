@@ -28,7 +28,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($orders as $order)
+                @foreach($orders->reverse() as $order)
                     <tr class="border-0">
                         <td class="border-0">{{$order->id}}</td>
                         <td class="border-0">{{$order->created_at}}</td>

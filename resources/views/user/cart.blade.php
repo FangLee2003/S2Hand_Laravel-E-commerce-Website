@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-lg-8 mb-4 mb-lg-0">
                     <!-- CART TABLE-->
-                    <div class="table-responsive mb-4">
+                    <div class="cart-table table-responsive mb-4">
                         <table class="table text-nowrap">
                             <thead class="bg-light">
                             <tr>

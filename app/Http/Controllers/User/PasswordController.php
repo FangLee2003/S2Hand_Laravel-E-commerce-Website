@@ -35,6 +35,5 @@ class PasswordController extends Controller
         $user->update();
 
         return back()->with('success', "Update password successfully");
-
     }
 }

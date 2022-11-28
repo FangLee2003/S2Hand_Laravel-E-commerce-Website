@@ -63,34 +63,39 @@ class AccountController extends Controller
 
     public function putEdit(Request $request, $id)
     {
-        $user = User::find($id);
+        try {
 
-        if ($request->hasFile('avatar')) {
-            $path = 'assets/uploads/avatar/' . $user->avatar;
-            if (File::exists($path)) {
-                File::delete($path);
+            $user = User::find($id);
+
+            if ($request->hasFile('avatar')) {
+                $path = 'assets/uploads/avatar/' . $user->avatar;
+                if (File::exists($path)) {
+                    File::delete($path);
+                }
+                $file = $request->file('avatar');
+                $ext = $file->getClientOriginalExtension();
+                $filename = time() . '.' . $ext;
+                $file->move('assets/uploads/avatar/', $filename);
+
+                $user->avatar = $filename;
             }
-            $file = $request->file('avatar');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $ext;
-            $file->move('assets/uploads/avatar/', $filename);
 
-            $user->avatar = $filename;
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->phone = $request->input('phone');
+            $user->city = $request->input('city');
+            $user->country = $request->input('country');
+            $user->postcode = $request->input('postcode');
+            $user->address1 = $request->input('address1');
+            $user->address2 = $request->input('address2');
+            $user->role_as = $request->input('admin') == TRUE ? '1' : '0';
+
+            $user->update();
+
+            return redirect('admin/accounts')->with('success', 'User Edited Successfully');
+        } catch (Exception $e) {
+            return back()->with('warning', 'Missing information');
         }
-
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->phone = $request->input('phone');
-        $user->city = $request->input('city');
-        $user->country = $request->input('country');
-        $user->postcode = $request->input('postcode');
-        $user->address1 = $request->input('address1');
-        $user->address2 = $request->input('address2');
-        $user->role_as = $request->input('admin') == TRUE ? '1' : '0';
-
-        $user->update();
-
-        return redirect('admin/accounts')->with('success', 'User Edited Successfully');
     }
 
     public function delete($id)
@@ -106,6 +111,6 @@ class AccountController extends Controller
 
         $user->delete();
 
-        return redirect('admin/accounts')->with('success', 'User Deleted Successfully');
+        return back()->with('success', 'User Deleted Successfully');
     }
 }

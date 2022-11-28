@@ -30,6 +30,6 @@ class OrderController extends Controller
         $cartItems = Order::where('id', $id)->get();
         Order::destroy($cartItems);
 
-        return redirect('/orders')->with('success', 'Cancel order successfully');
+        return back()->with('success', 'Cancel order successfully');
     }
 }

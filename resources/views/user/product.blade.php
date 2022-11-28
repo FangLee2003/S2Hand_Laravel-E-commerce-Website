@@ -76,7 +76,7 @@
                         <div class="alert alert-danger">OUT OF STOCK</div>
                     @endif
 
-                    <button class="addToWishlistBtn mb-3 d-inline-block btn btn-outline-dark" href="#!">
+                    <button class="updateWishlistBtn mb-3 d-inline-block btn btn-outline-dark" href="#!">
                         @if($checkWishlist == '1')
                             <i class="fas fa-heart me-2"></i>
                         @else

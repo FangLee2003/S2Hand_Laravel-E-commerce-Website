@@ -1,4 +1,4 @@
-$('.addToWishlistBtn').off().click(function (e) {
+$('.updateWishlistBtn').off().click(function (e) {
     e.preventDefault()
 
     let product_id = $('.product_id').val()
@@ -17,7 +17,7 @@ $('.addToWishlistBtn').off().click(function (e) {
         },
         success: function (response) {
             if (response.success) {
-                window.location.reload();
+                countWishlist();
                 swal(response.success, '', 'success');
             } else {
                 swal(response.warning, '', 'warning');
