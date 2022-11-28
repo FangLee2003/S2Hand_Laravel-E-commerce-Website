@@ -1,4 +1,4 @@
-@extends('layouts.admin');
+@extends('layouts.admin')
 
 @section('head')
     <title>Add Account - 2HAND</title>

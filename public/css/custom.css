@@ -21,3 +21,18 @@
 .nav-tabs .nav-link {
     padding: 1rem .75rem;
 }
+
+#search-input {
+    width: 32vw;
+    margin-right: 0;
+}
+
+#search-button {
+    margin-left: -2.5rem;
+    z-index: 10;
+}
+
+.ui-autocomplete {
+    width: 30vw;
+    background: white;
+}

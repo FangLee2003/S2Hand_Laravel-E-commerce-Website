@@ -21,6 +21,9 @@ Auth::routes();
 
 Route::get('/', 'User\HomeController@index');
 
+Route::get('search-product', 'User\ProductController@getSearch');
+Route::post('search-product', 'User\ProductController@postSearch');
+
 //Route::get('/admin', function () {
 //    return view('admin');
 //})->middleware(['auth'])->name('admin');

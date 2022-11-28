@@ -29,4 +29,32 @@ class ProductController extends Controller
             }
         }
     }
+
+    public function getSearch()
+    {
+        $products = Product::select('name')->where('status', '1')->get();
+
+        $data = [];
+
+        foreach ($products as $item) {
+            $data[] = $item['name'];
+        }
+
+        return $data;
+    }
+
+    public function postSearch(Request $request)
+    {
+        $product_name = $request->product_name;
+
+        if ($product_name != "") {
+            $product = Product::where('name', "LIKE", "%$product_name%")->first();
+            if ($product) {
+                return redirect($product->findCategory->slug . '/' . $product->slug);
+            }
+        }
+        else{
+            return back()->with('warning', 'No product found');
+        }
+    }
 }

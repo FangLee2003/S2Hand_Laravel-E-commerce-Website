@@ -1,4 +1,4 @@
-@extends('layouts.admin');
+@extends('layouts.admin')
 
 @section('head')
     <title>Orders - 2HAND</title>

@@ -9,6 +9,7 @@
                         <i class="fas fa-compass"></i> S2HAND
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link text-dark" href="{{url('/')}}">Home</a>
                         <a class="nav-link text-dark" href="{{url('clothes')}}">Clothes</a>
                         <a class="nav-link text-dark" href="{{url('accessory')}}">Accessory</a>
                         <a class="nav-link text-dark" href="{{url('shoes')}}">Shoes</a>

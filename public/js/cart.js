@@ -1,14 +1,15 @@
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 $('.addToCartBtn').off().click(function (e) {
     e.preventDefault()
 
     let product_id = $('.product_id').val()
     let product_quantity = $('.quantity-input').val()
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
 
     $.ajax({
         method: "POST",
@@ -32,11 +33,6 @@ $('.delete-item').off().click(function (e) {
 
     let product_id = $(this).closest('.cart-item').find('.product_id').val()
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
 
     $.ajax({
         method: "POST",
@@ -71,11 +67,6 @@ $('.inc-btn').off().click(function (e) { // .off() to avoid duplicate events
         value++
         input.val(value);
     }
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
 
     $.ajax({
         method: "POST",
@@ -108,11 +99,6 @@ $('.dec-btn').off().click(function (e) {
         input.val(value);
         console.log(value)
     }
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
 
     $.ajax({
         method: "POST",

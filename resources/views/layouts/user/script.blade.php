@@ -1,4 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('vendor/glightbox/js/glightbox.min.js')}}"></script>
 <script src="{{asset('vendor/nouislider/nouislider.min.js')}}"></script>
@@ -10,6 +11,7 @@
 <script src="{{asset('js/wishlist.js')}}"></script>
 <script src="{{asset('js/checkout.js')}}"></script>
 <script src="{{asset('js/countCartWishlist.js')}}"></script>
+<script src="{{asset('js/search.js')}}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     // ------------------------------------------------------- //

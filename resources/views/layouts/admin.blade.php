@@ -3,12 +3,12 @@
 
 <head>
     @include('layouts.admin.head')
-    @yield('head');
+    @yield('head')
 </head>
-<body class="g-sidenav-show  bg-gray-200">
+<body class="g-sidenav-show bg-gray-200">
 @include('layouts.admin.sidebar')
 {{--@yield('content')--}}
-<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg mr-0">
     @include('layouts.admin.navbar')
     <div class="container-fluid py-4">
         <div class="content">
@@ -118,6 +118,7 @@
 <!--   Core JS Files   -->
 <script src="{{ asset('js/core/popper.min.js') }}"></script>
 <script src="{{ asset('js/core/jquery.js') }}"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="{{ asset('js/core/bootstrap.js') }}"></script>
 <script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>
 <script src="{{ asset('js/plugins/smooth-scrollbar.min.js') }}"></script>
@@ -125,6 +126,7 @@
 <script src="{{asset('js/chart.js')}}"></script>
 <script src="{{asset('js/cart.js')}}"></script>
 <script src="{{asset('js/countCartWishlist.js')}}"></script>
+<script src="{{asset('js/search.js')}}"></script>
 
 <x:notify-messages/>
 @notifyJs
