@@ -53,8 +53,6 @@ class ProductController extends Controller
                 return redirect($product->findCategory->slug . '/' . $product->slug);
             }
         }
-        else{
-            return back()->with('warning', 'No product found');
-        }
+        return back()->with('warning', 'No product found');
     }
 }

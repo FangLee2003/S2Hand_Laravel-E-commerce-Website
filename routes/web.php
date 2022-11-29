@@ -83,6 +83,8 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 
         Route::get('delete-product/{id}', 'Admin\ProductController@delete');
 
+        Route::post('search-product-admin', 'Admin\ProductController@postSearch');
+
         Route::get('orders', 'Admin\OrderController@index');
         Route::get('complete-order/{id}', 'Admin\OrderController@completeOrder');
 
@@ -98,5 +100,6 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     });
 });
 
+Route::post('search', 'User\ProductController@postSearch');
 Route::get('{slug}', 'User\CategoryController@index');
 Route::get('{cate_slug}/{prod_slug}', 'User\ProductController@index');

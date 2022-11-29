@@ -19,15 +19,18 @@
             </ul>
             <ul class="col-6 px-0 flex justify-center">
                 <li class="nav-item">
-                    <div class="input-group">
-{{--                        <div class="form-inline">--}}
-                            <input id="search-input" type="search" id="form1" class="form-control"
-                                   placeholder="Search"/>
-                            <button id="search-button" type="button" class="btn btn-primary ">
+                    <form action="{{url('search-product')}}" method="POST">
+                        @csrf
+                        <div class="input-group">
+                            {{-- <div class="form-inline">--}}
+                            <input type="search" id="search-input" class="form-control" name="product_name"
+                                   placeholder="Search" required/>
+                            <button id="search-button" type="submit" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
                             </button>
-{{--                        </div>--}}
-                    </div>
+                            {{-- </div>--}}
+                        </div>
+                    </form>
                 </li>
             </ul>
             {{--            <div class="navbar-collapse" id="navbarSupportedContent">--}}

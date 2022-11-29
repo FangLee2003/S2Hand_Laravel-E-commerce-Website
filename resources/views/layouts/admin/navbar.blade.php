@@ -2,18 +2,21 @@
 <nav class="navbar navbar-main navbar-expand-lg pt-3 px-0 shadow-none border-radius-xl" id="navbarBlur"
      data-scroll="true">
     <div class="container-fluid py-1 px-3">
-{{--        <nav aria-label="breadcrumb">--}}
-            <div class="ms-md-auto d-flex align-items-center">
+        {{--        <nav aria-label="breadcrumb">--}}
+        <div class="ms-md-auto d-flex align-items-center">
+            <form action="{{url('admin/search-product-admin')}}" method="POST">
+                @csrf
                 <div class="input-group">
-{{--                    <label class="form-label">Type here...</label>--}}
-                    <input id="search-input" type="search" id="form1" class="form-control"
+                    {{--                    <label class="form-label">Type here...</label>--}}
+                    <input type="search" id="search-input" class="form-control" name="product_name"
                            placeholder="Search" required/>
-                    <button id="search-button" type="button" class="btn btn-primary mb-0">
+                    <button id="search-button" type="submit" class="btn btn-primary mb-0">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
-            </div>
-{{--        </nav>--}}
+            </form>
+        </div>
+        {{--        </nav>--}}
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto">
             </div>

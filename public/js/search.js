@@ -12,21 +12,3 @@ $.ajax({
         });
     }
 })
-
-$('#search-button').off().click(function (e) {
-    e.preventDefault()
-
-    let product_name = $('#search-input').val()
-    $.ajax({
-        method: "POST",
-        url: "/search-product",
-        data: {
-            "product_name": product_name,
-        },
-        success: function (response) {
-            if (response.warning) {
-                swal(response.warning, '', 'warning');
-            }
-        }
-    })
-})

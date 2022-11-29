@@ -118,4 +118,17 @@ class ProductController extends Controller
 
         return redirect('admin/products')->with('success', 'Product Deleted Successfully');
     }
+
+    public function postSearch(Request $request)
+    {
+        $product_name = $request->product_name;
+
+        if ($product_name != "") {
+            $product = Product::where('name', "LIKE", "%$product_name%")->first();
+            if ($product) {
+                return redirect('admin/edit-product/' . $product->id);
+            }
+        }
+        return back()->with('warning', 'No product found');
+    }
 }
