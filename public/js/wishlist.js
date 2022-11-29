@@ -18,6 +18,7 @@ $('.updateWishlistBtn').off().click(function (e) {
         success: function (response) {
             if (response.success) {
                 countWishlist();
+                $('.updateWishlistBtn').load(window.location.href + " .wishlist-text");
                 swal(response.success, '', 'success');
             } else {
                 swal(response.warning, '', 'warning');

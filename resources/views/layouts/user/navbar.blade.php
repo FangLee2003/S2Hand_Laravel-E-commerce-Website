@@ -49,11 +49,11 @@
                             <a class="nav-link text-dark" href="/account">Account</a>
                             <a class="nav-link text-dark" href="{{url('/cart')}}">
                                 {{--                                    <i class="fas fa-dolly-flatbed me-1"></i>--}}
-                                Cart <span class="countCart text-primary"> 0 </span>
+                                <span class="countCart text-primary"> 0 </span> Cart
                             </a>
                             <a class="nav-link text-dark" href="/wishlist">
                                 {{--                                    <i class="fas fa-heart me-1"></i>        --}}
-                                Wishlist <span class="countWishlist text-primary">0</span>
+                                <span class="countWishlist text-primary"> 0 </span> Wishlist
                             </a>
                             <a class="nav-link text-dark" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

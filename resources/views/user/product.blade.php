@@ -75,14 +75,16 @@
                     @else
                         <div class="alert alert-danger">OUT OF STOCK</div>
                     @endif
-
                     <button class="updateWishlistBtn mb-3 d-inline-block btn btn-outline-dark" href="#!">
-                        @if($checkWishlist == '1')
-                            <i class="fas fa-heart me-2"></i>
-                        @else
-                            <i class="far fa-heart me-2"></i>
-                        @endif
-                        Add to wish list
+                        <span class="wishlist-text">
+                            @if($checkWishlist == '1')
+                                <i class="fas fa-heart me-2"></i>
+                                Remove from wishlist
+                            @else
+                                <i class="far fa-heart me-2"></i>
+                                Add to wishlist
+                            @endif
+                        </span>
                     </button>
                     <br>
                     <ul class="list-unstyled small d-inline-block">
