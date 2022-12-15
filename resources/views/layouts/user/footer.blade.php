@@ -32,7 +32,7 @@
         <div class="border-top pt-4" style="border-color: #1d1d1d !important">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p class="small text-muted mb-0">&copy; 2021 All rights reserved.</p>
+                    <p class="small text-muted mb-0">&copy; 2022 All rights reserved.</p>
                 </div>
             </div>
         </div>

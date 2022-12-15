@@ -36,11 +36,16 @@
                     <h1>{{$product->name}}</h1>
                     <input type="hidden" class="product_id" value="{{$product->id}}">
                     <ul class="list-inline mb-2 text-sm">
-                        <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
-                        <li class="list-inline-item m-0 1"><i class="fas fa-star small text-warning"></i></li>
-                        <li class="list-inline-item m-0 2"><i class="fas fa-star small text-warning"></i></li>
-                        <li class="list-inline-item m-0 3"><i class="fas fa-star small text-warning"></i></li>
-                        <li class="list-inline-item m-0 4"><i class="fas fa-star small text-warning"></i></li>
+                        @for($i = 0; $i< $rating;$i++)
+                            <li class="list-inline-item m-0">
+                                <i class="fas fa-star text-warning"></i>
+                            </li>
+                        @endfor
+                        @for($i = 0; $i <5-$rating; $i++)
+                            <li class="list-inline-item m-0">
+                                <i class="far fa-star text-warning"></i>
+                            </li>
+                        @endfor
                     </ul>
                     <p class="text-muted lead">{{$product->selling_price}}$</p>
                     <p class="text-sm mb-4">{{$product->description}}</p>
@@ -125,27 +130,88 @@
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="d-flex mb-3">
-                                    <div class="flex-shrink-0">
-                                        <img class="rounded-circle" src="{{asset('img/customer-2.png')}}" alt=""
-                                             width="50"/></div>
-                                    <div class="ms-3 flex-shrink-1">
-                                        <h6 class="mb-0 text-uppercase">Jason Doe</h6>
-                                        <p class="small text-muted mb-0 text-uppercase">20 May 2020</p>
-                                        <ul class="list-inline mb-1 text-xs">
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i>
-                                            </li>
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i>
-                                            </li>
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i>
-                                            </li>
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i>
-                                            </li>
-                                            <li class="list-inline-item m-0"><i
-                                                    class="fas fa-star-half-alt text-warning"></i></li>
-                                        </ul>
-                                        <p class="text-sm mb-0 text-muted">Amazing product!</p>
+                                    <button
+                                        class="mb-3 d-inline-block btn btn-outline-dark"
+                                        data-bs-toggle="modal" data-bs-target=".rating-modal"><i
+                                            class="fas fa-feather px-1"></i>Write a review
+                                    </button>
+                                    <div class="modal fade rating-modal" tabindex="-1"
+                                         aria-labelledby="ratingModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content px-3">
+                                                <form action="/add-review" method="POST">
+                                                    @csrf
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title" id="ratingModalLabel">Review</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="product_id" value="{{$product->id}}">
+                                                        <div class="star-icon">
+                                                            <input type="radio" value="1" name="rating"
+                                                                   id="rating1"
+                                                                   checked>
+                                                            <label for="rating1" class="fa fa-star"></label>
+                                                            <input type="radio" value="2" name="rating"
+                                                                   id="rating2">
+                                                            <label for="rating2" class="fa fa-star"></label>
+                                                            <input type="radio" value="3" name="rating"
+                                                                   id="rating3">
+                                                            <label for="rating3" class="fa fa-star"></label>
+                                                            <input type="radio" value="4" name="rating"
+                                                                   id="rating4">
+                                                            <label for="rating4" class="fa fa-star"></label>
+                                                            <input type="radio" value="5" name="rating"
+                                                                   id="rating5">
+                                                            <label for="rating5" class="fa fa-star"></label>
+                                                        </div>
+                                                        <textarea class="form-control form-control-lg" type="text"
+                                                                  id="review" name="review"
+                                                                  placeholder="Write your review"></textarea>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light"
+                                                                data-bs-dismiss="modal">
+                                                            Close
+                                                        </button>
+                                                        <button type="submit" class="btn btn-dark">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                @foreach($reviews as $review)
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-shrink-0">
+                                            <img class="rounded-circle"
+                                                 src="{{asset('assets/uploads/avatar/'.$review->findUser->avatar)}}"
+                                                 alt=""
+                                                 width="50"/>
+                                        </div>
+                                        <div class="ms-3 flex-shrink-1">
+                                            <h6 class="mb-0">{{$review->findUser->name}}</h6>
+                                            <p class="small mb-0 text-muted">{{$review->created_at->format('d M y')}}</p>
+                                            <ul class="list-inline mb-1 text-xs">
+                                                @for($i = 0; $i< $review->rating;$i++)
+                                                    <li class="list-inline-item m-0">
+                                                        <i class="fas fa-star text-warning"></i>
+                                                    </li>
+                                                @endfor
+                                                @for($i = 0; $i <5-$review->rating; $i++)
+                                                    <li class="list-inline-item m-0">
+                                                        <i class="far fa-star text-warning"></i>
+                                                    </li>
+                                                @endfor
+                                                {{--                                                <li class="list-inline-item m-0"><i--}}
+                                                {{--                                                        class="fas fa-star-half-alt text-warning"></i>--}}
+                                                {{--                                                </li>--}}
+                                            </ul>
+                                            <p class="text-sm mb-0">{{ $review->review}}</p>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

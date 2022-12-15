@@ -23,7 +23,6 @@
 }
 
 #search-input {
-    width: 32vw;
     margin-right: 0;
 }
 
@@ -36,3 +35,37 @@
     width: 30vw;
     background: white;
 }
+
+/* Star Rating */
+.rating-modal div {
+    color: #ffc107;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+}
+
+.rating-modal input {
+    display: none;
+}
+
+.rating-modal input + label {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.rating-modal input:checked + label ~ label {
+    color: #afafaf;
+}
+
+.rating-modal label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}
+
+.modal-title {
+    color: black;
+    text-transform: none;
+}
+
+/* End of Star Rating */

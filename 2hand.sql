@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 16, 2022 at 07:07 AM
+-- Generation Time: Dec 02, 2022 at 09:18 AM
 -- Server version: 8.0.30
 -- PHP Version: 7.4.32
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `2hand`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carts`
+--
+
+CREATE TABLE `carts` (
+  `id` bigint UNSIGNED NOT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_quantity` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `user_id`, `product_id`, `product_quantity`, `created_at`, `updated_at`) VALUES
+(38, '1', '4', '4', '2022-11-29 09:46:10', '2022-11-29 10:15:44'),
+(39, '1', '8', '1', '2022-11-29 10:13:47', '2022-11-29 10:13:47');
 
 -- --------------------------------------------------------
 
@@ -47,7 +70,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `description`, `status`, `trending`, `meta_title`, `meta_descrip`, `meta_keywords`, `image`, `created_at`, `updated_at`) VALUES
-(3, 'Clothes', 'clothes', 'Beautiful Clothes', 0, 0, 'Clothes', 'Beautiful Clothes', 'clothes', '1668147746.jpg', '2022-11-10 23:22:26', '2022-11-10 23:22:26'),
+(3, 'Clothes', 'clothes', 'Beautiful clothes', 1, 1, 'Clothes', 'Beautiful clothes', 'clothes', '1668719468.jpg', '2022-11-17 14:11:08', '2022-11-17 14:11:08'),
 (4, 'Accessory', 'accessory', 'Elegant accessory', 1, 0, 'Accessory', 'Elegant accessory', 'accessory', '1668147817.jpg', '2022-11-10 23:23:37', '2022-11-10 23:23:37'),
 (5, 'Shoes', 'shoes', 'Modern shoes', 1, 0, 'Shoes', 'Modern shoes', 'shoes', '1668147866.jpg', '2022-11-10 23:24:26', '2022-11-10 23:24:26'),
 (6, 'Electronics', 'electronics', 'Powerful electronics', 1, 0, 'Electronics', 'Powerful electronics', 'electronics', '1668147917.jpg', '2022-11-10 23:25:17', '2022-11-10 23:25:17');
@@ -294,7 +317,97 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (27, '2016_02_15_204651_create_categories_table', 3),
 (28, '2017_04_11_000000_alter_post_nullable_fields_table', 3),
 (29, '2022_11_09_084619_create_categories_table', 4),
-(30, '2022_11_10_154458_create_products_table', 5);
+(30, '2022_11_10_154458_create_products_table', 5),
+(31, '2022_11_17_135211_create_carts_table', 6),
+(32, '2022_11_19_181856_create_orders_table', 7),
+(33, '2022_11_19_191230_create_orders_items_table', 7),
+(34, '2022_11_27_044242_create_wishlists_table', 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint UNSIGNED NOT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `postcode` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address1` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `notes` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `total_price` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_method` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'cod',
+  `status` tinyint NOT NULL DEFAULT '0',
+  `tracking_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `name`, `email`, `phone`, `city`, `country`, `postcode`, `address1`, `address2`, `notes`, `total_price`, `payment_method`, `status`, `tracking_number`, `created_at`, `updated_at`) VALUES
+(9, '1', 'Fang Lee', 'phanhung18082003@gmail.com', '0911040205', 'Đà Nẵng', 'Vietnam', '550000', 'Le Do', 'Tran Dai Nghia', NULL, '197', 'cod', 1, '6165', '2022-11-21 05:40:40', '2022-11-21 06:03:29'),
+(13, '1', 'Fang Lee', 'phanhung18082003@gmail.com', '0911040205', 'Đà Nẵng', 'Vietnam', '550000', 'Le Doo', 'Tran Dai Nghia', NULL, '49', 'Paypal', 0, '2134', '2022-11-27 06:54:20', '2022-11-27 06:54:20'),
+(14, '1', 'Fang Lee', 'phanhung18082003@gmail.com', '0911040205', 'Đà Nẵng', 'Vietnam', '550000', 'Le Doo', 'Tran Dai Nghia', NULL, '49', 'Paypal', 0, '2921', '2022-11-27 06:57:12', '2022-11-27 06:57:12'),
+(15, '1', 'Fang Lee', 'phanhung18082003@gmail.com', '0911040205', 'Đà Nẵng', 'Vietnam', '550000', 'Le Doo', 'Tran Dai Nghia', NULL, '49', 'Paypal', 0, '8187', '2022-11-27 06:58:43', '2022-11-27 06:58:43'),
+(16, '1', 'Fang Lee', 'phanhung18082003@gmail.com', '0911040205', 'Đà Nẵng', 'Vietnam', '550000', 'Le Doo', 'Tran Dai Nghia', NULL, '400', 'Paypal', 0, '3173', '2022-11-27 19:57:51', '2022-11-27 19:57:51'),
+(17, '1', 'Fang Lee', 'phanhung18082003@gmail.com', '0911040205', 'Đà Nẵng', 'Vietnam', '550000', 'Le Doo', 'Tran Dai Nghia', NULL, '999', 'Paypal', 0, '8256', '2022-11-29 07:10:20', '2022-11-29 07:10:20'),
+(18, '1', 'Fang Lee', 'phanhung18082003@gmail.com', '0911040205', 'Đà Nẵng', 'Vietnam', '550000', 'Le Doo', 'Tran Dai Nghia', NULL, '99', 'COD', 0, '4498', '2022-11-29 07:24:50', '2022-11-29 07:24:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders_items`
+--
+
+CREATE TABLE `orders_items` (
+  `id` bigint UNSIGNED NOT NULL,
+  `order_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_quantity` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_price` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders_items`
+--
+
+INSERT INTO `orders_items` (`id`, `order_id`, `user_id`, `product_id`, `product_quantity`, `product_price`, `created_at`, `updated_at`) VALUES
+(1, '2', '1', '5', '1', '400', '2022-11-19 17:04:43', '2022-11-19 17:04:43'),
+(2, '2', '1', '2', '1', '99', '2022-11-19 17:04:43', '2022-11-19 17:04:43'),
+(3, '3', '1', '5', '2', '400', '2022-11-19 17:17:19', '2022-11-19 17:17:19'),
+(4, '3', '1', '2', '3', '99', '2022-11-19 17:17:19', '2022-11-19 17:17:19'),
+(5, '4', '1', '5', '2', '400', '2022-11-19 17:20:36', '2022-11-19 17:20:36'),
+(6, '4', '1', '2', '3', '99', '2022-11-19 17:20:36', '2022-11-19 17:20:36'),
+(7, '6', '1', '3', '8', '900', '2022-11-19 23:43:42', '2022-11-19 23:43:42'),
+(8, '6', '1', '2', '5', '99', '2022-11-19 23:43:42', '2022-11-19 23:43:42'),
+(9, '7', '1', '5', '2', '400', '2022-11-20 21:10:16', '2022-11-20 21:10:16'),
+(10, '8', '1', '8', '1', '49', '2022-11-21 04:56:39', '2022-11-21 04:56:39'),
+(11, '9', '1', '4', '2', '49', '2022-11-21 05:40:40', '2022-11-21 05:40:40'),
+(12, '9', '1', '7', '1', '99', '2022-11-21 05:40:41', '2022-11-21 05:40:41'),
+(13, '10', '1', '8', '1', '49', '2022-11-27 06:38:32', '2022-11-27 06:38:32'),
+(14, '11', '1', '4', '1', '49', '2022-11-27 06:44:31', '2022-11-27 06:44:31'),
+(15, '12', '1', '8', '1', '49', '2022-11-27 06:45:08', '2022-11-27 06:45:08'),
+(16, '13', '1', '4', '1', '49', '2022-11-27 06:54:20', '2022-11-27 06:54:20'),
+(17, '14', '1', '8', '1', '49', '2022-11-27 06:57:12', '2022-11-27 06:57:12'),
+(18, '15', '1', '8', '1', '49', '2022-11-27 06:58:44', '2022-11-27 06:58:44'),
+(19, '16', '1', '5', '1', '400', '2022-11-27 19:57:51', '2022-11-27 19:57:51'),
+(20, '17', '1', '2', '1', '99', '2022-11-29 07:10:20', '2022-11-29 07:10:20'),
+(21, '17', '1', '3', '1', '900', '2022-11-29 07:10:20', '2022-11-29 07:10:20'),
+(22, '18', '1', '7', '1', '99', '2022-11-29 07:24:50', '2022-11-29 07:24:50'),
+(23, '19', '1', '6', '2', '799', '2022-11-29 09:44:04', '2022-11-29 09:44:04'),
+(24, '19', '1', '3', '4', '900', '2022-11-29 09:44:04', '2022-11-29 09:44:04');
 
 -- --------------------------------------------------------
 
@@ -341,7 +454,7 @@ CREATE TABLE `password_resets` (
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-('phanhung18082003@gmail.com', '$2y$10$sFfOCRtpaWehrU34lxgA9uxQ0qQN36SUCOvsGlvVx/a8wj9L7jaZS', '2022-11-09 20:17:36');
+('phanhung18082003@gmail.com', '$2y$10$V7nONPyXDRPv7/2veV/dEOrZiRH6aSf4ktPI2tMPkfyLClakVH2Uy', '2022-11-20 00:41:58');
 
 -- --------------------------------------------------------
 
@@ -542,13 +655,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `cate_id`, `name`, `slug`, `description`, `original_price`, `selling_price`, `quantity`, `status`, `trending`, `meta_title`, `meta_descrip`, `meta_keywords`, `image`, `created_at`, `updated_at`) VALUES
-(2, 3, 'Blue shirt', 'blueshirt', 'Beautiful shirt', '100', '99', '5', 1, 1, 'Blue shirt', 'Beautiful shirt', 'blueshirt', '1668152917.jpg', '2022-11-10 11:10:44', '2022-11-11 00:48:37'),
-(3, 6, 'AirPods 9', 'airpods9', 'AirPods deliver an unparalleled wireless headphone experience, from magical setup to high-quality sound.', '1000', '900', '7', 1, 1, 'AirPods 9', 'AirPods deliver an unparalleled wireless headphone experience, from magical setup to high-quality sound.', 'airpods9', '1668154292.jpg', '2022-11-11 00:46:51', '2022-11-11 04:48:47'),
-(4, 3, 'Black-white shirt', 'blackwhiteshirt', 'Beautiful red shirt', '75', '49', '8', 1, 1, 'Black-white shirt', 'Beautiful black-white shirt', 'blackwhiteshirt', '1668154357.jpg', '2022-11-11 00:56:38', '2022-11-11 01:12:37'),
-(5, 4, 'Red watch', 'redwatch', 'Digital red watch', '500', '400', '13', 1, 1, 'Red watch', 'Digital red watch', 'redwatch', '1668154236.jpg', '2022-11-11 01:09:38', '2022-11-11 04:52:06'),
-(6, 6, 'Polaroid Camera', 'polaroidcamera', 'Modern Polaroid Camera', '1000', '799', '8', 1, 1, 'Polaroid Camera', 'Modern Polaroid Camera', 'polaroidcamera', '1668154556.jpg', '2022-11-11 01:15:56', '2022-11-11 01:16:04'),
-(7, 4, 'Jo Malone Perfume', 'jomaloneperfume', 'Luxury Jo Malone Perfume', '200', '99', '17', 1, 1, 'Jo Malone Perfume', 'Luxury Jo Malone Perfume', 'jomaloneperfume', '1668154769.jpg', '2022-11-11 01:19:29', '2022-11-11 07:23:57'),
-(8, 5, 'Green shoes', 'greenshoes', 'Super fast shoes', '50', '49', '14', 1, 1, 'Green shoes', 'Super fast shoes', 'greenshoes', '1668154905.jpg', '2022-11-11 01:21:45', '2022-11-11 04:52:20'),
+(2, 3, 'Blue shirt', 'blueshirt', 'Beautiful shirt', '100', '99', '49', 1, 1, 'Blue shirt', 'Beautiful shirt', 'blueshirt', '1668152917.jpg', '2022-11-10 11:10:44', '2022-11-29 07:10:20'),
+(3, 6, 'AirPods 9', 'airpods9', 'AirPods deliver an unparalleled wireless headphone experience, from magical setup to high-quality sound.', '1000', '900', '45', 1, 1, 'AirPods 9', 'AirPods deliver an unparalleled wireless headphone experience, from magical setup to high-quality sound.', 'airpods9', '1668154292.jpg', '2022-11-11 00:46:51', '2022-11-29 09:44:04'),
+(4, 3, 'Black-white shirt', 'blackwhiteshirt', 'Beautiful red shirt', '75', '49', '4', 1, 1, 'Black-white shirt', 'Beautiful black-white shirt', 'blackwhiteshirt', '1668154357.jpg', '2022-11-11 00:56:38', '2022-11-27 06:54:20'),
+(5, 4, 'Red watch', 'redwatch', 'Digital red watch', '500', '400', '10', 1, 1, 'Red watch', 'Digital red watch', 'redwatch', '1668154236.jpg', '2022-11-11 01:09:38', '2022-11-27 19:57:51'),
+(6, 6, 'Polaroid Camera', 'polaroidcamera', 'Modern Polaroid Camera', '1000', '799', '6', 1, 1, 'Polaroid Camera', 'Modern Polaroid Camera', 'polaroidcamera', '1668154556.jpg', '2022-11-11 01:15:56', '2022-11-29 09:44:04'),
+(7, 4, 'Jo Malone Perfume', 'jomaloneperfume', 'Luxury Jo Malone Perfume', '200', '99', '15', 1, 1, 'Jo Malone Perfume', 'Luxury Jo Malone Perfume', 'jomaloneperfume', '1668154769.jpg', '2022-11-11 01:19:29', '2022-11-29 07:24:50'),
+(8, 5, 'Green shoes', 'greenshoes', 'Super fast shoes', '50', '49', '9', 1, 1, 'Green shoes', 'Super fast shoes', 'greenshoes', '1668154905.jpg', '2022-11-11 01:21:45', '2022-11-27 06:58:44'),
 (9, 5, 'Black shoes', 'blackshoes', 'Super slow shoes', '70', '39', '11', 1, 1, 'Black shoes', 'Super slow shoes', 'blackshoes', '1668155047.jpg', '2022-11-11 01:24:07', '2022-11-11 01:24:07');
 
 -- --------------------------------------------------------
@@ -670,7 +783,13 @@ CREATE TABLE `users` (
   `role_id` bigint UNSIGNED DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT 'users/default.png',
+  `phone` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address1` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address2` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `postcode` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'default.png',
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role_as` tinyint NOT NULL DEFAULT '0',
@@ -684,11 +803,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `role_as`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Fang Lee', 'phanhung18082003@gmail.com', 'users/default.png', NULL, '$2y$10$fWAMWvk408UCXTT18i3mcemAuDYpa60nQw1LScGfF6aq4Cwi/oaIG', 1, 'vdt3nzuvRuCzhcRtBstEu6FunvsLZEuN3hkpaXj9Pz006rl7uDw6XNTKL0uL', NULL, '2022-11-07 09:06:21', '2022-11-07 09:06:21'),
-(2, NULL, 'Hung', 'hungplv.21ad@vku.udn.vn', 'users/default.png', NULL, '$2y$10$L6AfD5rJqJTh8hYF6JTLjOWaRbNB4qjiKuAmNOturJTdYqJ1/RMwa', 0, 'j6Ogj5J88AkRHrxj119PRhatVbE5sXdHV3w8GUHBulycqlsbP2izdWWkljsV', NULL, '2022-11-07 20:21:03', '2022-11-07 20:21:03'),
-(3, 1, 'admin', 'phanhung18082003@email.com', 'users/default.png', NULL, '$2y$10$ju9UJXc8yRRByIzO1oOFGe4lwIjVOllKGbXGuHKvDljUzDuLI1anO', 0, NULL, NULL, '2022-11-09 01:10:43', '2022-11-09 01:10:43'),
-(4, 1, 'fanglee', 'hungplvfs90336@fpt.edu.vn', 'users/default.png', NULL, '$2y$10$nUtFYyHnPCXxo73pgaFP4OsLF9emKNM4mKioU7abcl9q5xUSJZ/2W', 0, 'OUEEEquSJh7OwbugZQ9G5ioDvUUZtonypckga8Vu3wGT9i43hGFovACxhghU', NULL, '2022-11-09 01:36:32', '2022-11-09 01:36:33');
+INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `phone`, `city`, `country`, `address1`, `address2`, `postcode`, `avatar`, `email_verified_at`, `password`, `role_as`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Fang Lee', 'phanhung18082003@gmail.com', '0911040205', 'Đà Nẵng', 'Vietnam', 'Le Doo', 'Tran Dai Nghia', '550000', '1669044782.jpg', NULL, '$2y$10$fWAMWvk408UCXTT18i3mcemAuDYpa60nQw1LScGfF6aq4Cwi/oaIG', 1, 'iIeHR6lRhOiuodk3bVBDJzN0UCi90Q4CbizFbLc1xoQwFWTf7RRyS7Buq837', NULL, '2022-11-07 09:06:21', '2022-11-26 23:22:04'),
+(2, NULL, 'Hung', 'hungplv.21ad@vku.udn.vn', NULL, NULL, NULL, NULL, NULL, NULL, 'default.png', NULL, '$2y$10$L6AfD5rJqJTh8hYF6JTLjOWaRbNB4qjiKuAmNOturJTdYqJ1/RMwa', 0, 'j6Ogj5J88AkRHrxj119PRhatVbE5sXdHV3w8GUHBulycqlsbP2izdWWkljsV', NULL, '2022-11-07 20:21:03', '2022-11-27 20:30:25'),
+(6, NULL, 'Phan Hung', 'hungplvfs90336@fpt.edu.vn', NULL, NULL, NULL, NULL, NULL, NULL, '1669046264.png', NULL, 'fanglee1808', 1, NULL, NULL, '2022-11-21 08:57:44', '2022-11-21 08:57:44');
 
 -- --------------------------------------------------------
 
@@ -701,9 +819,37 @@ CREATE TABLE `user_roles` (
   `role_id` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlists`
+--
+
+CREATE TABLE `wishlists` (
+  `id` bigint UNSIGNED NOT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `wishlists`
+--
+
+INSERT INTO `wishlists` (`id`, `user_id`, `product_id`, `created_at`, `updated_at`) VALUES
+(11, '1', '6', '2022-11-29 07:40:11', '2022-11-29 07:40:11'),
+(48, '1', '8', '2022-11-29 10:43:00', '2022-11-29 10:43:00');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `carts`
+--
+ALTER TABLE `carts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `categories`
@@ -751,6 +897,18 @@ ALTER TABLE `menu_items`
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders_items`
+--
+ALTER TABLE `orders_items`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -840,14 +998,26 @@ ALTER TABLE `user_roles`
   ADD KEY `user_roles_role_id_index` (`role_id`);
 
 --
+-- Indexes for table `wishlists`
+--
+ALTER TABLE `wishlists`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `carts`
+--
+ALTER TABLE `carts`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `data_rows`
@@ -883,7 +1053,19 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `orders_items`
+--
+ALTER TABLE `orders_items`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -937,7 +1119,13 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `wishlists`
+--
+ALTER TABLE `wishlists`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- Constraints for dumped tables

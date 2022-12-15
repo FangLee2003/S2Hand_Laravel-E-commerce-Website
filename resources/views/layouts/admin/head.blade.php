@@ -22,6 +22,6 @@
 <!-- CSS Files -->
 @notifyCss
 <link id="pagestyle" href="{{asset('css/material-dashboard.css')}}" rel="stylesheet"/>
-<link id="pagestyle" href="{{asset('css/custom.css')}}" rel="stylesheet"/>
+{{--<link id="pagestyle" href="{{asset('css/custom.css')}}" rel="stylesheet"/>--}}
 
 @yield('head')

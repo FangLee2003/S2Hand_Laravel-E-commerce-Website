@@ -46,6 +46,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('count-wishlist-item', 'User\WishlistController@countProduct');
     Route::get('count-cart-item', 'User\CartController@countProduct');
 
+    Route::post('add-review', 'User\ReviewController@addReview');
+
     Route::get('checkout', 'User\CheckoutController@index');
     Route::post('checkout', 'User\CheckoutController@placeOrder');
 
