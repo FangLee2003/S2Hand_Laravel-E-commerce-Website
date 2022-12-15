@@ -27,7 +27,7 @@ class ProductController extends Controller
                 $checkWishlist = Wishlist::where('user_id', Auth::id())->where('product_id', $product->id)->exists() ? '1' : '0';
 
                 $reviews = Review::where('product_id', $product->id)->get();
-                $rating = ceil($reviews->sum('rating') / $reviews->count());
+                $rating = $reviews->empty() ? 5 : ceil($reviews->sum('rating') / $reviews->count());
 
                 return view('user.product', compact('product', 'related_product', 'cartItem_quantity', 'checkWishlist', 'reviews', 'rating'));
             }

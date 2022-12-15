@@ -41,7 +41,7 @@ class ReviewController extends Controller
                 }
                 return back()->with('success', "Submit review successfully");
             }
-            return back()->with('warning', "You can not rate a product without purchasing it");
+            return back()->with('warning', "You can not review a product without purchasing it");
         }
         return back()->with('warning', "Product does not exist");
     }
