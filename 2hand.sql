@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 02, 2022 at 09:18 AM
+-- Generation Time: Dec 18, 2022 at 03:56 PM
 -- Server version: 8.0.30
 -- PHP Version: 7.4.32
 
@@ -321,7 +321,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (31, '2022_11_17_135211_create_carts_table', 6),
 (32, '2022_11_19_181856_create_orders_table', 7),
 (33, '2022_11_19_191230_create_orders_items_table', 7),
-(34, '2022_11_27_044242_create_wishlists_table', 8);
+(34, '2022_11_27_044242_create_wishlists_table', 8),
+(35, '2022_12_15_100254_create_reviews_table', 9);
 
 -- --------------------------------------------------------
 
@@ -667,6 +668,29 @@ INSERT INTO `products` (`id`, `cate_id`, `name`, `slug`, `description`, `origina
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` bigint UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rating` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `review` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `created_at`, `updated_at`, `user_id`, `product_id`, `rating`, `review`) VALUES
+(1, '2022-12-15 03:47:28', '2022-12-15 04:24:00', '1', '7', '4', 'Great!');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `roles`
 --
 
@@ -961,6 +985,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -1053,7 +1083,7 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -1098,6 +1128,12 @@ ALTER TABLE `products`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
@@ -1125,7 +1161,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wishlists`
 --
 ALTER TABLE `wishlists`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- Constraints for dumped tables
