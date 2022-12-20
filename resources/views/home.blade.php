@@ -14,7 +14,7 @@
                     <div class="col-lg-6">
                         <p class="text-muted small text-uppercase mb-2">New Inspiration 2022</p>
                         <h1 class="h2 text-uppercase mb-3">20% off on new season</h1>
-{{--                        <a class="btn btn-dark" href="/">Browse collections</a>--}}
+                        {{--                        <a class="btn btn-dark" href="/">Browse collections</a>--}}
                     </div>
                 </div>
             </div>
@@ -142,10 +142,12 @@
                         <p class="text-sm text-muted mb-0">We are happy if we can be friends.</p>
                     </div>
                     <div class="col-md-6">
-                        <form action="#">
+                        <form action="/subscribe" method="POST">
+                            @csrf
                             <div class="input-group">
                                 <input class="form-control form-control-lg" type="email"
-                                       placeholder="Enter your email address" aria-describedby="button-addon2">
+                                       placeholder="Enter your email address" aria-describedby="button-addon2"
+                                       name="email">
                                 <button class="btn btn-dark" id="button-addon2" type="submit">Subscribe</button>
                             </div>
                         </form>

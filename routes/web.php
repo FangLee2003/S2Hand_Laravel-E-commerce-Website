@@ -24,6 +24,8 @@ Route::get('/', 'User\HomeController@index');
 Route::get('search-product', 'User\ProductController@getSearch');
 Route::post('search-product', 'User\ProductController@postSearch');
 
+Route::post('subscribe', 'User\SubscribeController@postSubscribe');
+
 //Route::get('/admin', function () {
 //    return view('admin');
 //})->middleware(['auth'])->name('admin');
@@ -89,6 +91,9 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 
         Route::get('orders', 'Admin\OrderController@index');
         Route::get('complete-order/{id}', 'Admin\OrderController@completeOrder');
+
+        Route::get('subscribers','Admin\SubscriberController@index');
+        Route::get('delete-subscriber/{id}', 'Admin\SubscriberController@delete');
 
         Route::get('accounts', 'Admin\AccountController@index');
 

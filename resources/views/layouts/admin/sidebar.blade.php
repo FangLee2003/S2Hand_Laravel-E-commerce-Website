@@ -50,30 +50,21 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-white {{Request::is('admin/tables')? 'active bg-gradient-primary' : ''}}"
+                   href="{{url('admin/subscribers')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fas fa-ad opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">&nbsp Subscribers</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{Request::is('admin/accounts')? 'active bg-gradient-primary' : ''}}"
                    href="{{url('admin/accounts')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
                     <span class="nav-link-text ms-1">Accounts</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{Request::is('admin/tables')? 'active bg-gradient-primary' : ''}}"
-                   href="../pages/tables.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Tables</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{Request::is('admin/billing')? 'active bg-gradient-primary' : ''}}"
-                   href="../pages/billing.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">receipt_long</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Billing</span>
                 </a>
             </li>
             <li class="nav-item">
