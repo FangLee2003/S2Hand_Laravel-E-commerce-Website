@@ -25,6 +25,6 @@ class SubscribeController extends Controller
 
         $subscriber->save();
 
-        return back()->with('success', "Registered successfully");
+        return back()->with('success', "Subscribed successfully");
     }
 }

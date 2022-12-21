@@ -92,7 +92,7 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
         Route::get('orders', 'Admin\OrderController@index');
         Route::get('complete-order/{id}', 'Admin\OrderController@completeOrder');
 
-        Route::get('subscribers','Admin\SubscriberController@index');
+        Route::get('subscribers', 'Admin\SubscriberController@index');
         Route::get('delete-subscriber/{id}', 'Admin\SubscriberController@delete');
 
         Route::get('accounts', 'Admin\AccountController@index');
@@ -108,5 +108,10 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 });
 
 Route::post('search', 'User\ProductController@postSearch');
+
+Route::get('{slug}_from={from}_to={to}_order={order}', 'User\CategoryController@indexFilterOrder');
+//Route::get('{slug}-order={order}', 'User\CategoryController@indexOrder');
+//Route::get('{slug}-from={from}-to={to}', 'User\CategoryController@indexFilter');
 Route::get('{slug}', 'User\CategoryController@index');
+
 Route::get('{cate_slug}/{prod_slug}', 'User\ProductController@index');
