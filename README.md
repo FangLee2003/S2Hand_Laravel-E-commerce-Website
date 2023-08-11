@@ -1,6 +1,5 @@
-
-https://github.com/FangLee2003/S2Hand_Laravel-E-commerce-Website/assets/75077747/9ba1e71c-909f-45c0-8b05-5e8808ff46b5
-Uploading 2Hand Ecommerce Website Demo.mp4…
+# Preview || Second-hand E-commerce Website
+https://github.com/FangLee2003/S2Hand_Laravel-E-commerce-Website/assets/75077747/4bafae97-f55e-4deb-b572-c25941f5d7fd
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
